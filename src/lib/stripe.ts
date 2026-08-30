@@ -8,6 +8,7 @@ export function getStripe() {
   return new Stripe(key);
 }
 
-/** Guide price in HUF (Stripe zero-decimal currency — no * 100). */
+/** Guide price in HUF (zero-decimal: 1000 = 1000 Ft). Stripe min ≈ 175 Ft. */
 export const GUIDE_PRICE_HUF = 1000;
 export const GUIDE_NAME = "Az Első Millió – Replica Reselling Útmutató";
+export const GUIDE_STRIPE_AMOUNT = Math.max(GUIDE_PRICE_HUF, 175);

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getStripe, GUIDE_PRICE_HUF, GUIDE_NAME } from "@/lib/stripe";
+import { getStripe, GUIDE_STRIPE_AMOUNT, GUIDE_NAME } from "@/lib/stripe";
 
 export async function POST() {
   try {
@@ -27,7 +27,7 @@ export async function POST() {
           quantity: 1,
           price_data: {
             currency: "huf",
-            unit_amount: GUIDE_PRICE_HUF,
+            unit_amount: GUIDE_STRIPE_AMOUNT,
             product_data: {
               name: GUIDE_NAME,
               description:

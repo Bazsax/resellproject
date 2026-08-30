@@ -13,7 +13,9 @@ import {
   Repeat,
   ChevronRight,
   Quote,
-  Coins
+  Coins,
+  Check,
+  X
 } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import {
@@ -146,30 +148,6 @@ export default function GuidePage() {
         </div>
       </section>
 
-      {/* The Game */}
-      <section className="py-16 border-t border-zinc-800">
-        <div className={SECTION}>
-          <div className="rounded-3xl bg-[#121214] border border-[#27272a] p-8 sm:p-10 text-center space-y-6">
-            <Zap className="w-10 h-10 text-[#ccff00] mx-auto" />
-            <h2 className="text-2xl sm:text-3xl font-black uppercase text-white font-display">
-              Ennyi az egész játék
-            </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm font-bold text-zinc-300">
-              <span className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Találj olcsón</span>
-              <ChevronRight className="w-5 h-5 text-[#ccff00] hidden sm:block" />
-              <span className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Tedd fel</span>
-              <ChevronRight className="w-5 h-5 text-[#ccff00] hidden sm:block" />
-              <span className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Add el</span>
-              <ChevronRight className="w-5 h-5 text-[#ccff00] hidden sm:block" />
-              <span className="px-4 py-2 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/40 text-[#ccff00]">Ismételd</span>
-            </div>
-            <p className="text-sm text-zinc-400">
-              Bárki meg tudja csinálni – de a legtöbb ember elbukik, mert nincs rendszere. Az útmutató pont ezt adja meg: egy működő, követhető folyamatot, amit mások már bizonyítottak.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Millionaire from small start */}
       <section className="py-16 border-t border-zinc-800">
         <div className={SECTION}>
@@ -217,6 +195,30 @@ export default function GuidePage() {
 
             <p className="relative z-10 text-center text-xs text-zinc-500 max-w-xl mx-auto">
               Nem ígérünk varázslatot egy éjszaka alatt. De ígérünk egy módszert, ami működik – és amit te is lefuthatsz.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* The Game */}
+      <section className="py-16 border-t border-zinc-800">
+        <div className={SECTION}>
+          <div className="rounded-3xl bg-[#121214] border border-[#27272a] p-8 sm:p-10 text-center space-y-6">
+            <Zap className="w-10 h-10 text-[#ccff00] mx-auto" />
+            <h2 className="text-2xl sm:text-3xl font-black uppercase text-white font-display">
+              Ennyi az egész játék
+            </h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm font-bold text-zinc-300">
+              <span className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Találj olcsón</span>
+              <ChevronRight className="w-5 h-5 text-[#ccff00] hidden sm:block" />
+              <span className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Tedd fel</span>
+              <ChevronRight className="w-5 h-5 text-[#ccff00] hidden sm:block" />
+              <span className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Add el</span>
+              <ChevronRight className="w-5 h-5 text-[#ccff00] hidden sm:block" />
+              <span className="px-4 py-2 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/40 text-[#ccff00]">Ismételd</span>
+            </div>
+            <p className="text-sm text-zinc-400">
+              Bárki meg tudja csinálni – de a legtöbb ember elbukik, mert nincs rendszere. Az útmutató pont ezt adja meg: egy működő, követhető folyamatot, amit mások már bizonyítottak.
             </p>
           </div>
         </div>
@@ -323,22 +325,65 @@ export default function GuidePage() {
       {/* Value Comparison */}
       <section className="py-16 border-t border-zinc-800">
         <div className={SECTION}>
-          <div className="rounded-3xl bg-zinc-950 border border-zinc-800 p-8 sm:p-10 text-center space-y-6">
-            <h3 className="text-2xl sm:text-3xl font-black uppercase text-white font-display">
+          <div className="rounded-3xl bg-zinc-950 border border-zinc-800 p-6 sm:p-10 space-y-8">
+            <h3 className="text-2xl sm:text-3xl font-black uppercase text-white font-display text-center">
               Miért éri meg már az első héten?
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-              <div className="p-5 rounded-xl bg-red-950/30 border border-red-800/40 space-y-2">
-                <h4 className="text-sm font-bold text-red-400 uppercase">Útmutató nélkül</h4>
-                <p className="text-xs text-zinc-400">
-                  Hónapokig próbálkozol, elbuksz rossz döntéseken, és sosem tudod biztosan, hogy jó irányba mész.
-                </p>
+              <div className="p-5 rounded-xl bg-red-950/30 border border-red-800/40 space-y-4">
+                <h4 className="text-sm font-bold text-red-400 uppercase flex items-center gap-2">
+                  <X className="w-4 h-4" /> Útmutató nélkül
+                </h4>
+                <ul className="space-y-2.5">
+                  {[
+                    { text: "Megtartod az ezer forintod", pro: true },
+                    { text: "Lemaradsz több millió forintról", pro: false },
+                    { text: "Hónapokig próbálkozol vakon", pro: false },
+                    { text: "Rossz beszállítókon buksz el pénzt", pro: false },
+                    { text: "Selejt termékek, visszaküldések, veszekedés", pro: false },
+                    { text: "Nincs rendszer – minden nap elölről kezdesz", pro: false },
+                    { text: "Sosem tudod, jó irányba mész-e", pro: false },
+                    { text: "A platform kitilt, mielőtt elindulnál", pro: false },
+                    { text: "Másnak adod a profitot viszonteladói feláron", pro: false },
+                    { text: "Egy év múlva is ugyanott tartasz", pro: false },
+                  ].map((item) => (
+                    <li key={item.text} className="flex items-start gap-2 text-xs leading-snug">
+                      {item.pro ? (
+                        <Check className="w-3.5 h-3.5 text-[#ccff00] flex-shrink-0 mt-0.5" />
+                      ) : (
+                        <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
+                      )}
+                      <span className={item.pro ? "text-[#ccff00] font-medium" : "text-zinc-400"}>
+                        {item.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="p-5 rounded-xl bg-lime-950/30 border border-[#ccff00]/40 space-y-2">
-                <h4 className="text-sm font-bold text-[#ccff00] uppercase">Az útmutatóval</h4>
-                <p className="text-xs text-zinc-300">
-                  Kész rendszerrel indulsz, amit mások már bizonyítottak – és te is elérheted ugyanezeket az eredményeket.
-                </p>
+
+              <div className="p-5 rounded-xl bg-lime-950/30 border border-[#ccff00]/40 space-y-4">
+                <h4 className="text-sm font-bold text-[#ccff00] uppercase flex items-center gap-2">
+                  <Check className="w-4 h-4" /> Az útmutatóval
+                </h4>
+                <ul className="space-y-2.5">
+                  {[
+                    "Kész, bizonyított rendszerrel indulsz",
+                    "Kihagyod a drága próbálkozásokat",
+                    "Tudod, mit szerezz be és hol add el",
+                    "Az első eladások gyorsabban jönnek",
+                    "Az ezer forintod megtérülhet az első héten",
+                    "Követhető lépések – nem kell találgatnod",
+                    "Más sikeres eladók módszerét kapod meg",
+                    "Skálázható üzlet, nem egyszeri szerencse",
+                    "Kevesebb stressz, több kontroll",
+                    "Ugyanazokat az eredményeket érheted el, mint ők",
+                  ].map((text) => (
+                    <li key={text} className="flex items-start gap-2 text-xs text-zinc-300 leading-snug">
+                      <Check className="w-3.5 h-3.5 text-[#ccff00] flex-shrink-0 mt-0.5" />
+                      <span>{text}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>

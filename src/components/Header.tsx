@@ -264,11 +264,9 @@ export const Header: React.FC = () => {
                   <Send className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://gumroad.com"
-                  target="_blank"
-                  rel="noreferrer"
+                  href="/utmutato"
                   className="p-1.5 rounded-lg bg-zinc-900 hover:text-[#ccff00] hover:bg-zinc-800"
-                  aria-label="Gumroad"
+                  aria-label="Resell útmutató"
                 >
                   <FileText className="w-4 h-4" />
                 </a>

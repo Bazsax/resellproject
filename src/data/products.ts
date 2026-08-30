@@ -124,9 +124,10 @@ export const PRODUCTS: Product[] = [
       "Vámolási és adózási kisokos Magyarországra (0 Ft felesleges vámköltség)",
       "Vinted, Instagram és Marketplaces hirdetéskezelési kézikönyv",
       "Automata rendelés- és ügyfélkezelési Excel/Notion sablonok",
-      "Azonnali hozzáférés és örökös ingyenes frissítések a Gumroad felületén"
+      "Azonnali hozzáférés e-mailben a sikeres Stripe fizetés után",
+      "Örökös frissítések a dokumentációhoz"
     ],
-    sourcingTime: "Azonnali digitális letöltés (PDF + Notion link)"
+    sourcingTime: "Azonnali hozzáférés e-mailben"
   },
   {
     id: "jordan-4-retro-military-black",

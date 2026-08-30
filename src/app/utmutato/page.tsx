@@ -2,8 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  Download, 
-  ExternalLink, 
   ShieldCheck, 
   Flame, 
   Star,
@@ -24,29 +22,14 @@ import {
   GUIDE_STEPS,
   GUIDE_FAQ,
 } from "@/data/guide";
+import { GuideBuyButton } from "@/components/GuideBuyButton";
 
 export const metadata = {
   title: "Az Első Millió – Replica Reselling Útmutató 2026 | EgyPerEgy",
-  description: "A teljes digitális viszonteladói útmutató: ellenőrzött beszállítók, bizonyított eladási módszer és azonnali letöltés."
+  description: "A teljes digitális viszonteladói útmutató: ellenőrzött beszállítók, bizonyított eladási módszer és azonnali hozzáférés e-mailben."
 };
 
 const SECTION = "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8";
-
-function BuyButton({ className = "", label }: { className?: string; label?: string }) {
-  const guideProduct = PRODUCTS.find((p) => p.isDigital) || PRODUCTS[1];
-  return (
-    <a
-      href={guideProduct.gumroadUrl || "https://gumroad.com"}
-      target="_blank"
-      rel="noreferrer"
-      className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-black uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition shadow-xl shadow-[#ccff00]/25 ${className}`}
-    >
-      <Download className="w-4 h-4" />
-      <span>{label ?? "Megvásárolom Gumroadon (14 990 Ft)"}</span>
-      <ExternalLink className="w-4 h-4" />
-    </a>
-  );
-}
 
 function SectionHeader({ label, title, description }: { label: string; title: string; description?: string }) {
   return (
@@ -126,9 +109,9 @@ export default function GuidePage() {
                     <span>5.0 / 5.0 (128 eladás)</span>
                   </div>
                 </div>
-                <BuyButton className="w-full" label="MEGVÁSÁROLOM ÉS LETÖLTÖM (GUMROAD)" />
+                <GuideBuyButton label="MEGVÁSÁROLOM ÉS HOZZÁFÉREK" />
                 <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] text-zinc-400">
-                  <span className="flex items-center gap-1"><Lock className="w-3.5 h-3.5 text-[#ccff00]" /> Biztonságos fizetés</span>
+                  <span className="flex items-center gap-1"><Lock className="w-3.5 h-3.5 text-[#ccff00]" /> Biztonságos Stripe fizetés</span>
                   <span>•</span>
                   <span>Azonnali letöltés</span>
                   <span>•</span>
@@ -396,7 +379,7 @@ export default function GuidePage() {
               Nem kell hozzá több, mint egy működő rendszer és a döntés, hogy elindulsz. A részletek az útmutatóban várnak.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-              <BuyButton label="KEZDD EL MOST – 14 990 Ft" />
+              <GuideBuyButton label="KEZDD EL MOST – 14 990 Ft" className="!w-auto" />
               <Link
                 href="/egyedi-beszerzes"
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-xl text-xs font-black uppercase tracking-wider bg-zinc-900 border border-zinc-700 text-white hover:border-[#ccff00] hover:text-[#ccff00] transition"
@@ -406,7 +389,7 @@ export default function GuidePage() {
               </Link>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 relative z-10">
-              <span className="flex items-center gap-1"><ShieldCheck className="w-4 h-4 text-[#ccff00]" /> Gumroad garancia</span>
+              <span className="flex items-center gap-1"><ShieldCheck className="w-4 h-4 text-[#ccff00]" /> Stripe fizetés</span>
               <span>•</span>
               <span>Azonnali letöltés</span>
               <span>•</span>

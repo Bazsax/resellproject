@@ -2,14 +2,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  FileText, 
   CheckCircle2, 
-  ExternalLink, 
   ArrowRight, 
   ShieldCheck, 
-  Download, 
   Flame 
 } from "lucide-react";
+import { GuideBuyButton } from "@/components/GuideBuyButton";
 
 export const DigitalGuideSpotlight: React.FC = () => {
   return (
@@ -52,7 +50,7 @@ export const DigitalGuideSpotlight: React.FC = () => {
                   "Vinted & Instagram hirdetési és eladási mesterfogások",
                   "Árrés növelési és profit maximalizáló Excel & Notion sablonok",
                   "Minőségellenőrzési (QC) kézikönyv a hibátlan darabokhoz",
-                  "Azonnali letöltés Gumroadon & örökös ingyenes frissítések"
+                  "Azonnali hozzáférés e-mailben & örökös frissítések"
                 ].map((text, i) => (
                   <div key={i} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-200">
                     <CheckCircle2 className="w-4 h-4 text-[#ccff00] flex-shrink-0 mt-0.5" />
@@ -64,10 +62,10 @@ export const DigitalGuideSpotlight: React.FC = () => {
               <div className="flex items-center gap-4 text-xs text-zinc-400 font-medium">
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="w-4 h-4 text-[#ccff00]" />
-                  Biztonságos Gumroad fizetés
+                  Biztonságos Stripe fizetés
                 </span>
                 <span>•</span>
-                <span>Azonnali PDF + Link elérés</span>
+                <span>Azonnali PDF / Docs elérés</span>
               </div>
             </div>
 
@@ -112,16 +110,10 @@ export const DigitalGuideSpotlight: React.FC = () => {
               </div>
 
               <div className="shrink-0 flex flex-col gap-2">
-                <a
-                  href="https://gumroad.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full py-3 px-5 rounded-xl font-black text-xs uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition flex items-center justify-center gap-2 shadow-lg shadow-[#ccff00]/25"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>MEGVÁSÁROLOM (GUMROAD)</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                <GuideBuyButton
+                  label="MEGVÁSÁROLOM"
+                  className="!py-3 !px-5 !text-xs !shadow-lg"
+                />
 
                 <Link
                   href="/utmutato"

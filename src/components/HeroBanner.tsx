@@ -47,7 +47,7 @@ export const HeroBanner: React.FC = () => {
                 className="w-full sm:w-auto px-6 py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition flex items-center justify-center gap-2 shadow-lg shadow-[#ccff00]/20 font-btn"
               >
                 <FileText className="w-4 h-4" />
-                <span>RESELL ÚTMUTATÓ (GUMROAD)</span>
+                <span>RESELL ÚTMUTATÓ</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 

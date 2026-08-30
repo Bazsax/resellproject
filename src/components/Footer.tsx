@@ -100,7 +100,7 @@ export const Footer: React.FC = () => {
           {/* Col 4: Digitális & Útmutatók */}
           <div>
             <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3 flex items-center gap-1">
-              DIGITÁLIS FÁJLOK <span className="text-[10px] bg-black text-[#ccff00] px-1.5 py-0.5 rounded font-black font-btn">GUMROAD</span>
+              DIGITÁLIS FÁJLOK <span className="text-[10px] bg-black text-[#ccff00] px-1.5 py-0.5 rounded font-black font-btn">STRIPE</span>
             </h4>
             <ul className="space-y-2 font-medium">
               <li>

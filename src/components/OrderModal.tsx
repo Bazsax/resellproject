@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { X, CheckCircle2, Send, ShoppingBag, ShieldCheck, ArrowRight, ExternalLink } from "lucide-react";
 import confetti from "canvas-confetti";
 import { useCart } from "@/context/CartContext";
@@ -92,17 +93,15 @@ export const OrderModal: React.FC = () => {
                         Digitális Útmutató Hozzáférés
                       </span>
                       <p className="text-xs text-white font-medium mt-0.5">
-                        Azonnal hozzáférhetsz a Resell Masterclass anyagokhoz Gumroadon!
+                        A Resell Masterclass hozzáférést e-mailben küldjük a Stripe fizetés után.
                       </p>
                     </div>
-                    <a
-                      href="https://gumroad.com"
-                      target="_blank"
-                      rel="noreferrer"
+                    <Link
+                      href="/utmutato"
                       className="px-3 py-2 text-xs font-black uppercase rounded-lg bg-[#ccff00] text-black hover:bg-[#b3e600] inline-flex items-center gap-1"
                     >
-                      Megnyitás <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+                      Útmutató <ExternalLink className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
                 </div>
               )}
@@ -148,7 +147,7 @@ export const OrderModal: React.FC = () => {
                 <div className="p-3 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/30 text-xs text-zinc-300 flex items-start gap-2">
                   <span className="text-base">⚡</span>
                   <div>
-                    <span className="font-bold text-[#ccff00]">Digitális Fájl a kosárban:</span> A digitális resell útmutatót közvetlenül a Gumroad biztonságos rendszerén keresztül is letöltheted azonnal.
+                    <span className="font-bold text-[#ccff00]">Digitális Fájl a kosárban:</span> Az útmutató hozzáférését a sikeres Stripe fizetés után e-mailben küldjük.
                   </div>
                 </div>
               )}

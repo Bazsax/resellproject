@@ -10,10 +10,10 @@ import {
   Minus, 
   ShoppingBag, 
   ArrowRight, 
-  ExternalLink, 
   ShieldCheck 
 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { GuideBuyButton } from "@/components/GuideBuyButton";
 
 export const CartDrawer: React.FC = () => {
   const { 
@@ -211,15 +211,12 @@ export const CartDrawer: React.FC = () => {
 
               {/* Direct Gumroad option if digital file */}
               {hasDigitalItem && (
-                <a
-                  href="https://gumroad.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full py-2.5 rounded-xl font-bold text-xs uppercase bg-zinc-900 border border-[#ccff00]/40 text-[#ccff00] hover:bg-zinc-800 transition flex items-center justify-center gap-1.5 font-btn"
-                >
-                  <span>DIGITÁLIS FÁJL GUMROAD AZONNALI FIZETÉS</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                <div className="w-full">
+                  <GuideBuyButton
+                    label="DIGITÁLIS ÚTMUTATÓ – AZONNALI FIZETÉS"
+                    className="!py-2.5 !text-xs !shadow-none !rounded-xl"
+                  />
+                </div>
               )}
 
               <div className="flex items-center justify-center gap-2 text-[10px] text-zinc-400 font-medium">

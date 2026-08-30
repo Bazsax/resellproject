@@ -12,12 +12,12 @@ import {
   ShieldCheck, 
   Truck, 
   RefreshCw, 
-  ExternalLink,
   Sparkles
 } from "lucide-react";
 import { PRODUCTS, RECOMMENDED_ADDONS, ProductAddon } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import { ProductCard } from "@/components/ProductCard";
+import { GuideBuyButton } from "@/components/GuideBuyButton";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -270,15 +270,7 @@ export default function ProductDetailPage({ params }: PageProps) {
         {/* 7. Big CTA Button (Bold Nekst font, Uppercase styling) */}
         <div className="pt-3">
           {product.isDigital ? (
-            <a
-              href={product.gumroadUrl || "https://gumroad.com"}
-              target="_blank"
-              rel="noreferrer"
-              className="w-full py-4 rounded-xl font-extrabold text-base uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition flex items-center justify-center gap-2 shadow-xl shadow-[#ccff00]/30 font-btn"
-            >
-              <span>MEGVÁSÁROLOM (GUMROAD)</span>
-              <ExternalLink className="w-5 h-5" />
-            </a>
+            <GuideBuyButton label="MEGVÁSÁROLOM – 14 990 Ft" />
           ) : (
             <button
               onClick={handleAddToCart}

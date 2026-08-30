@@ -1,18 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { Download, ExternalLink, Loader2 } from "lucide-react";
+import { Download, Loader2 } from "lucide-react";
 
 type GuideBuyButtonProps = {
   className?: string;
   label?: string;
-  showExternalIcon?: boolean;
 };
 
 export function GuideBuyButton({
   className = "",
   label = "MEGVÁSÁROLOM – 1 000 Ft",
-  showExternalIcon = true,
 }: GuideBuyButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -52,7 +50,6 @@ export function GuideBuyButton({
           <>
             <Download className="w-4 h-4" />
             <span>{label}</span>
-            {showExternalIcon && <ExternalLink className="w-4 h-4" />}
           </>
         )}
       </button>

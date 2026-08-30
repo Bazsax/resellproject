@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getStripe } from "@/lib/stripe";
+import {
+  buildGuideAccessEmailHtml,
+  buildGuideAccessEmailText,
+} from "@/lib/emails/guide-access";
 import type Stripe from "stripe";
 
 export const runtime = "nodejs";
@@ -20,24 +24,18 @@ async function sendGuideAccessEmail(to: string, sessionId: string) {
   }
 
   const resend = new Resend(apiKey!);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const emailProps = { guideUrl: guideUrl!, sessionId, siteUrl };
 
-  const html = `
-    <h2>Köszönjük a vásárlást – EgyPerEgy</h2>
-    <p>Sikeresen megvásároltad az <strong>Az Első Millió – Replica Reselling Útmutató</strong> digitális anyagát.</p>
-    <p>A hozzáférési linked (Google Docs / dokumentum):</p>
-    <p><a href="${guideUrl}">${guideUrl}</a></p>
-    <p style="margin-top:24px;font-size:13px;color:#666;">
-      Mentésed: mentsd el ezt az e-mailt. A link a vásárlásodhoz tartozik.
-      Rendelési azonosító: <code>${sessionId}</code>
-    </p>
-    <p style="font-size:13px;color:#666;">Ha nem te vásároltál, jelezd nekünk.</p>
-  `;
+  const html = buildGuideAccessEmailHtml(emailProps);
+  const text = buildGuideAccessEmailText(emailProps);
 
   const { data, error } = await resend.emails.send({
     from: fromEmail!,
     to: [to],
     subject: "[EgyPerEgy] Az útmutató hozzáférésed",
     html,
+    text,
   });
 
   if (error) {

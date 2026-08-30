@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Send, MessageSquare, CheckCircle2, Clock, MapPin, Sparkles } from "lucide-react";
+import { Mail, Send, CheckCircle2, Clock, Sparkles, Loader2 } from "lucide-react";
 import { InstagramIcon } from "@/components/SocialIcons";
 import confetti from "canvas-confetti";
 
@@ -13,14 +13,37 @@ export default function ContactPage() {
     message: ""
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError(null);
+
     try {
-      confetti({ particleCount: 70, spread: 60 });
-    } catch (e) {
-      console.error(e);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error ?? "Az üzenet küldése sikertelen.");
+      }
+
+      setSubmitted(true);
+      try {
+        confetti({ particleCount: 70, spread: 60 });
+      } catch (err) {
+        console.error(err);
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Váratlan hiba történt.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -42,7 +65,6 @@ export default function ContactPage() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Left Cards */}
           <div className="md:col-span-5 space-y-4">
             <div className="p-6 rounded-2xl bg-[#121214] border border-[#27272a] space-y-3">
               <div className="flex items-center gap-3">
@@ -90,7 +112,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right Contact Form */}
           <div className="md:col-span-7">
             <div className="p-6 sm:p-8 rounded-3xl bg-[#121214] border border-[#27272a] shadow-2xl">
               {submitted ? (
@@ -167,12 +188,23 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {error && (
+                    <p className="text-xs text-red-400 text-center">{error}</p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition flex items-center justify-center gap-2 shadow-lg shadow-[#ccff00]/20"
+                    disabled={isSubmitting}
+                    className="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition flex items-center justify-center gap-2 shadow-lg shadow-[#ccff00]/20 disabled:opacity-50"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Üzenet Elküldése</span>
+                    {isSubmitting ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Üzenet Elküldése</span>
+                      </>
+                    )}
                   </button>
                 </form>
               )}

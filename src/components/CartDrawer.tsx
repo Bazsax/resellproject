@@ -11,8 +11,7 @@ import {
   ShoppingBag, 
   ArrowRight, 
   ExternalLink, 
-  ShieldCheck, 
-  Sparkles 
+  ShieldCheck 
 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
@@ -37,7 +36,7 @@ export const CartDrawer: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="fixed inset-0 z-50 overflow-hidden font-sans">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
@@ -51,7 +50,7 @@ export const CartDrawer: React.FC = () => {
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-5 h-5 text-[#ccff00]" />
               <h2 className="text-lg font-black uppercase text-white tracking-wide font-display">
-                Kosár ({cart.reduce((a, c) => a + c.quantity, 0)})
+                KOSÁR ({cart.reduce((a, c) => a + c.quantity, 0)})
               </h2>
             </div>
             <button
@@ -70,19 +69,19 @@ export const CartDrawer: React.FC = () => {
                 <div className="w-16 h-16 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-600 flex items-center justify-center mx-auto">
                   <ShoppingBag className="w-8 h-8" />
                 </div>
-                <h3 className="text-base font-bold text-white uppercase">
-                  A kosarad jelenleg üres
+                <h3 className="text-base font-bold text-white uppercase font-display">
+                  A KOSARAD JELENLEG ÜRES
                 </h3>
-                <p className="text-xs text-zinc-400 max-w-xs mx-auto">
+                <p className="text-xs text-zinc-400 max-w-xs mx-auto font-sans">
                   Böngéssz 1/1 prémium cipőink, streetwear kollekciónk vagy a digitális resell útmutatónk között!
                 </p>
                 <div className="pt-2">
                   <Link
                     href="/katalogus"
                     onClick={closeCart}
-                    className="inline-flex items-center gap-2 px-5 py-3 text-xs font-black uppercase rounded-xl bg-[#ccff00] text-black hover:bg-[#b3e600] transition"
+                    className="inline-flex items-center gap-2 px-5 py-3 text-xs font-extrabold uppercase rounded-xl bg-[#ccff00] text-black hover:bg-[#b3e600] transition font-btn"
                   >
-                    Katalógus Megtekintése <ArrowRight className="w-4 h-4" />
+                    KATALÓGUS MEGTEKINTÉSE <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -103,14 +102,14 @@ export const CartDrawer: React.FC = () => {
                       />
                     </div>
 
-                    {/* Item Details */}
+                    {/* Item Details: Nekst font, soft weight, not uppercase */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-1">
                         <div>
-                          <span className="text-[10px] font-bold uppercase text-[#ccff00]">
+                          <span className="text-[10px] font-bold uppercase text-[#ccff00] font-btn">
                             {item.product.brand}
                           </span>
-                          <h4 className="text-xs font-bold text-white line-clamp-2 leading-tight">
+                          <h4 className="text-xs font-medium text-white line-clamp-2 leading-tight font-nekst normal-case">
                             {item.product.name}
                           </h4>
                         </div>
@@ -124,9 +123,9 @@ export const CartDrawer: React.FC = () => {
                       </div>
 
                       {item.selectedSize && (
-                        <div className="mt-1 flex items-center gap-1.5 text-xs text-zinc-300">
-                          <span className="font-semibold text-zinc-400">Méret:</span>
-                          <span className="px-1.5 py-0.5 rounded bg-zinc-800 text-[#ccff00] font-bold text-[11px]">
+                        <div className="mt-1 flex items-center gap-1.5 text-xs text-zinc-300 font-nekst normal-case">
+                          <span className="text-zinc-400">Méret:</span>
+                          <span className="px-1.5 py-0.5 rounded bg-zinc-800 text-[#ccff00] font-medium text-[11px]">
                             {item.selectedSize}
                           </span>
                         </div>
@@ -138,7 +137,7 @@ export const CartDrawer: React.FC = () => {
                           {item.addons.map((add) => (
                             <span
                               key={add.id}
-                              className="text-[10px] bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded border border-zinc-700 font-medium"
+                              className="text-[10px] bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded border border-zinc-700 font-medium font-nekst normal-case"
                             >
                               + {add.name.split(" ")[0]} ({add.price.toLocaleString("hu-HU")} Ft)
                             </span>
@@ -158,7 +157,7 @@ export const CartDrawer: React.FC = () => {
                       >
                         <Minus className="w-3 h-3" />
                       </button>
-                      <span className="px-3 text-xs font-bold text-white">
+                      <span className="px-3 text-xs font-medium text-white font-nekst normal-case">
                         {item.quantity}
                       </span>
                       <button
@@ -171,7 +170,7 @@ export const CartDrawer: React.FC = () => {
                     </div>
 
                     <div className="text-right">
-                      <span className="text-sm font-black text-[#ccff00]">
+                      <span className="text-sm font-semibold text-[#ccff00] font-nekst normal-case">
                         {item.totalPrice.toLocaleString("hu-HU")} Ft
                       </span>
                     </div>
@@ -187,26 +186,26 @@ export const CartDrawer: React.FC = () => {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs text-zinc-400">
                   <span>Részösszeg</span>
-                  <span className="font-semibold text-white">{subtotal.toLocaleString("hu-HU")} Ft</span>
+                  <span className="font-medium text-white font-nekst normal-case">{subtotal.toLocaleString("hu-HU")} Ft</span>
                 </div>
                 <div className="flex justify-between text-xs text-zinc-400">
                   <span>Beszerzési közvetítés díja</span>
-                  <span className="font-bold text-[#ccff00]">Ingyenes</span>
+                  <span className="font-bold text-[#ccff00] font-btn">INGYENES</span>
                 </div>
                 <div className="flex justify-between text-sm font-black text-white pt-2 border-t border-zinc-800">
-                  <span>Végösszeg</span>
-                  <span className="text-base text-[#ccff00]">
+                  <span className="font-display uppercase">VÉGÖSSZEG</span>
+                  <span className="text-base text-[#ccff00] font-nekst font-semibold normal-case">
                     {subtotal.toLocaleString("hu-HU")} Ft
                   </span>
                 </div>
               </div>
 
-              {/* Main Button */}
+              {/* Main Button in Bold Nekst uppercase */}
               <button
                 onClick={handleProceed}
-                className="w-full py-4 rounded-xl font-black text-sm uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition flex items-center justify-center gap-2 shadow-lg shadow-[#ccff00]/20"
+                className="w-full py-4 rounded-xl font-extrabold text-sm uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition flex items-center justify-center gap-2 shadow-lg shadow-[#ccff00]/20 font-btn"
               >
-                <span>Beszerzési Rendelés Leadása</span>
+                <span>BESZERZÉSI RENDELÉS LEADÁSA</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -216,9 +215,9 @@ export const CartDrawer: React.FC = () => {
                   href="https://gumroad.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full py-2.5 rounded-xl font-bold text-xs uppercase bg-zinc-900 border border-[#ccff00]/40 text-[#ccff00] hover:bg-zinc-800 transition flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 rounded-xl font-bold text-xs uppercase bg-zinc-900 border border-[#ccff00]/40 text-[#ccff00] hover:bg-zinc-800 transition flex items-center justify-center gap-1.5 font-btn"
                 >
-                  <span>Digitális Fájl Gumroad Azonnali Fizetés</span>
+                  <span>DIGITÁLIS FÁJL GUMROAD AZONNALI FIZETÉS</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               )}

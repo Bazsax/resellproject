@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Antry Sans';
+    src: url('AntrySans-ThinItalic.woff2') format('woff2'),
+        url('AntrySans-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Antry Sans';
+    src: url('AntrySans-Thin.woff2') format('woff2'),
+        url('AntrySans-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Antry Sans';
+    src: url('AntrySans-BoldItalic.woff2') format('woff2'),
+        url('AntrySans-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Antry Sans';
+    src: url('AntrySans-Bold.woff2') format('woff2'),
+        url('AntrySans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Antry Sans';
+    src: url('AntrySans-Italic.woff2') format('woff2'),
+        url('AntrySans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Antry Sans';
+    src: url('AntrySans-Regular.woff2') format('woff2'),
+        url('AntrySans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

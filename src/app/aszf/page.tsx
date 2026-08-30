@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 
 export const metadata = {
-  title: "Általános Szerződési Feltételek (ÁSZF) | LOGO IDE",
+  title: "Általános Szerződési Feltételek (ÁSZF) | EgyPerEgy",
   description: "Általános Szerződési Feltételek digitális termékekre és beszerzési közvetítésre."
 };
 
@@ -28,7 +28,7 @@ export default function TermsPage() {
         <section className="space-y-3">
           <h2 className="text-base font-black uppercase text-white font-display">1. Általános Rendelkezések</h2>
           <p>
-            Jelen Általános Szerződési Feltételek (a továbbiakban: ÁSZF) szabályozza a Szolgáltató weboldalán (LOGO IDE / Resell Hub) elérhető digitális oktatóanyagok (resell útmutatók) értékesítését, valamint a ruházati és cipőipari termékekre vonatkozó egyedi beszerzési és közvetítői szolgáltatás igénybevételének feltételeit.
+            Jelen Általános Szerződési Feltételek (a továbbiakban: ÁSZF) szabályozza a Szolgáltató weboldalán (EgyPerEgy) elérhető digitális oktatóanyagok (resell útmutatók) értékesítését, valamint a ruházati és cipőipari termékekre vonatkozó egyedi beszerzési és közvetítői szolgáltatás igénybevételének feltételeit.
           </p>
         </section>
 

@@ -2,19 +2,20 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { InstagramIcon, TikTokIcon, TelegramIcon } from "@/components/SocialIcons";
+import { Logo } from "@/components/Logo";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-[#ccff00] text-black">
+    <footer className="w-full bg-[#ccff00] text-black font-sans">
       {/* Top Main Columns Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-xs">
           {/* Col 1: 1/1 Replikák */}
           <div>
-            <h4 className="font-black text-sm uppercase tracking-wider mb-3">
-              1/1 Replikák
+            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
+              1/1 REPLIKÁK
             </h4>
-            <ul className="space-y-2 font-semibold">
+            <ul className="space-y-2 font-medium">
               <li>
                 <Link href="/katalogus?marka=Jordan" className="hover:underline opacity-90 hover:opacity-100">
                   Jordan
@@ -40,10 +41,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Budget Replikák */}
           <div>
-            <h4 className="font-black text-sm uppercase tracking-wider mb-3">
-              Budget replikák
+            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
+              BUDGET REPLIKÁK
             </h4>
-            <ul className="space-y-2 font-semibold">
+            <ul className="space-y-2 font-medium">
               <li>
                 <Link href="/katalogus?marka=Jordan" className="hover:underline opacity-90 hover:opacity-100">
                   Jordan
@@ -69,10 +70,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Streetwear */}
           <div>
-            <h4 className="font-black text-sm uppercase tracking-wider mb-3">
-              Streetwear
+            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
+              STREETWEAR
             </h4>
-            <ul className="space-y-2 font-semibold">
+            <ul className="space-y-2 font-medium">
               <li>
                 <Link href="/katalogus?kat=streetwear" className="hover:underline opacity-90 hover:opacity-100">
                   FOG
@@ -98,10 +99,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Digitális & Útmutatók */}
           <div>
-            <h4 className="font-black text-sm uppercase tracking-wider mb-3 flex items-center gap-1">
-              Digitális Fájlok <span className="text-[10px] bg-black text-[#ccff00] px-1.5 py-0.5 rounded font-black">GUMROAD</span>
+            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3 flex items-center gap-1">
+              DIGITÁLIS FÁJLOK <span className="text-[10px] bg-black text-[#ccff00] px-1.5 py-0.5 rounded font-black font-btn">GUMROAD</span>
             </h4>
-            <ul className="space-y-2 font-semibold">
+            <ul className="space-y-2 font-medium">
               <li>
                 <Link href="/utmutato" className="hover:underline opacity-90 hover:opacity-100 font-bold">
                   Resell Masterclass 2026
@@ -127,10 +128,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 5: Kapcsolat */}
           <div>
-            <h4 className="font-black text-sm uppercase tracking-wider mb-3">
-              Kapcsolat
+            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
+              KAPCSOLAT
             </h4>
-            <ul className="space-y-2 font-semibold">
+            <ul className="space-y-2 font-medium">
               <li>
                 <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:underline opacity-90 hover:opacity-100 flex items-center gap-1">
                   IG: @resellbolt <ArrowUpRight className="w-3 h-3" />
@@ -156,10 +157,10 @@ export const Footer: React.FC = () => {
 
           {/* Col 6: Dokumentumok */}
           <div>
-            <h4 className="font-black text-sm uppercase tracking-wider mb-3">
-              Dokumentumok
+            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
+              DOKUMENTUMOK
             </h4>
-            <ul className="space-y-2 font-semibold">
+            <ul className="space-y-2 font-medium">
               <li>
                 <Link href="/gyik" className="hover:underline opacity-90 hover:opacity-100">
                   GYIK
@@ -189,12 +190,10 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Brand & Socials Section */}
+        {/* Brand & Socials Section with generated Logo */}
         <div className="mt-10 pt-8 border-t border-black/15 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="text-2xl font-black uppercase tracking-tighter font-display">
-              LOGO IDE
-            </span>
+            <Logo variant="footer" size="md" />
             <div className="flex items-center gap-2 ml-4">
               <a
                 href="https://tiktok.com"
@@ -226,7 +225,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <p className="text-xs font-semibold opacity-90 text-center sm:text-right">
+          <p className="text-xs font-semibold opacity-90 text-center sm:text-right font-sans">
             Prémium minőségű beszerzési közvetítés & Digitális resell oktatóanyagok.
           </p>
         </div>
@@ -235,8 +234,8 @@ export const Footer: React.FC = () => {
       {/* Bottom Sub-footer */}
       <div className="bg-black text-zinc-400 text-[11px] py-4 px-4 border-t border-zinc-800">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center">
-          <p>© 2026. Cipőbolt & Resell Hub. Minden jog fenntartva.</p>
-          <div className="flex items-center gap-2 font-medium">
+          <p className="font-sans">© 2026. EgyPerEgy. Minden jog fenntartva.</p>
+          <div className="flex items-center gap-2 font-medium font-sans">
             <span>A weboldalt készítette:</span>
             <a
               href="https://pixelplaza.hu"

@@ -91,19 +91,19 @@ export const DigitalGuideSpotlight: React.FC = () => {
                 </div>
               </div>
 
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#ccff00] block mb-1">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ccff00] block mb-1.5">
                 Limitált ideig elérhető
               </span>
 
               <div className="shrink-0 p-3 rounded-xl bg-black border border-zinc-800 text-center lg:text-left">
                 <span className="text-[11px] text-zinc-500 line-through block font-medium">
-                  29 990 Ft helyett
+                  10 000 Ft helyett
                 </span>
-                <div className="flex items-baseline gap-2 justify-center lg:justify-start">
-                  <span className="text-2xl font-black text-white">
-                    14 990 Ft
+                <div className="flex items-center gap-2 justify-center lg:justify-start">
+                  <span className="text-2xl font-black text-[#ccff00]">
+                    1 000 Ft
                   </span>
-                  <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-red-600/80 text-white">
+                  <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-red-600/80 text-white self-center">
                     -50% AKCIÓ
                   </span>
                 </div>

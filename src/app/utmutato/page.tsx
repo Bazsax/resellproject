@@ -91,17 +91,17 @@ export default function GuidePage() {
                 </span>
               </div>
 
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#ccff00] block mb-1">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ccff00] block mb-1.5">
                 Limitált ideig elérhető
               </span>
 
               <div className="p-5 rounded-2xl bg-[#121214] border-2 border-[#27272a] shadow-2xl space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div>
-                    <span className="text-xs text-zinc-500 line-through block">29 990 Ft helyett</span>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-3xl sm:text-4xl font-black text-white">14 990 Ft</span>
-                      <span className="text-xs font-extrabold px-2 py-0.5 rounded bg-red-600/80 text-white uppercase">-50%</span>
+                    <span className="text-xs text-zinc-500 line-through block">10 000 Ft helyett</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-3xl sm:text-4xl font-black text-[#ccff00]">1 000 Ft</span>
+                      <span className="text-xs font-extrabold px-2 py-0.5 rounded bg-red-600/80 text-white uppercase self-center">-50%</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-zinc-300 font-semibold">
@@ -379,7 +379,7 @@ export default function GuidePage() {
               Nem kell hozzá több, mint egy működő rendszer és a döntés, hogy elindulsz. A részletek az útmutatóban várnak.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-              <GuideBuyButton label="KEZDD EL MOST – 14 990 Ft" className="!w-auto" />
+              <GuideBuyButton label="KEZDD EL MOST – 1 000 Ft" className="!w-auto" />
               <Link
                 href="/egyedi-beszerzes"
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-xl text-xs font-black uppercase tracking-wider bg-zinc-900 border border-zinc-700 text-white hover:border-[#ccff00] hover:text-[#ccff00] transition"

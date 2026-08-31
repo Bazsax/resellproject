@@ -306,7 +306,7 @@ export default function GuidePage() {
           <SectionHeader
             label="Lépésről lépésre"
             title="Hogyan működik?"
-            description="Nem listázzuk ki mindent – a részletek az útmutatóban vannak. De így néz ki a folyamat, amit követsz."
+            description="A részletes módszer az útmutatóban van, de így néz ki a folyamat, amit követni fogsz."
           />
           <div className="space-y-4">
             {GUIDE_STEPS.map((step) => (
@@ -403,7 +403,7 @@ export default function GuidePage() {
         <div className={SECTION}>
           <div className="rounded-3xl bg-zinc-950 border border-zinc-800 p-6 sm:p-10 space-y-8">
             <h3 className="text-2xl sm:text-3xl font-black uppercase text-white font-display text-center">
-              Miért éri meg már az első héten?
+              Ez te vagy, és te lehetnél
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
               <div className="p-5 rounded-xl bg-red-950/30 border border-red-800/40 space-y-4">

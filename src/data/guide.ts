@@ -92,11 +92,11 @@ export const GUIDE_STEPS = [
     number: "02",
     title: "Kihagyod a bukó próbálkozásokat",
     summary:
-      "A legtöbb kezdő hónapokat vesztegeti rossz beszállítókkal és selejtes termékekkel. Te ellenőrzött kontaktokkal indulhatsz – anélkül, hogy saját pénzedből tanulnál.",
+      "A legtöbb rengeted pénzt veszteget rossz beszállítókkal és selejtes termékekkel. Te ellenőrzött kontaktokkal indulhatsz – anélkül, hogy saját pénzedet buknád.",
   },
   {
     number: "03",
-    title: "Eladni tudsz, nem csak beszerezni",
+    title: "Eladni is megtanulsz, nem csak beszerezni",
     summary:
       "A beszerzés önmagában nem elég. Megtanulod, hogyan tűnj megbízhatónak a vevők számára, és hogyan keljen el a terméked – a részletek az útmutatóban vannak.",
   },
@@ -104,13 +104,13 @@ export const GUIDE_STEPS = [
     number: "04",
     title: "Felépíted, ami marad",
     summary:
-      "Az első eladás csak a kezdet. Megtanulod visszaforgatni a profitot, visszatérő vevőket szerezni, és egy stabil alapot építeni – amire már nem kell minden alkalommal elölről kezdened.",
+      "Az első eladás csak a kezdet. Megtanulod visszaforgatni a profitot, visszatérő vevőket szerezni, és egy stabil vevőbázist építeni – hogy ne kelljen minden alkalommal elölről kezdened.",
   },
   {
     number: "05",
     title: "Skálázás a csillagokig",
     summary:
-      "Ha az alap működik, jön a növekedés: több termék, több platform, nagyobb volumen. Innen indul az út az első millió felé – és az útmutató végigkísér ezen a szakaszon is.",
+      "Ha az alap működik, jön a skálázás: drágább termékek, nagyobb profit, nagyobb volumen. Innen az út nem az első millióig, hanem az első 10 millióig vezet– és az útmutató végigkísér ezen a szakaszon is.",
   },
 ];
 

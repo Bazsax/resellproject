@@ -4,7 +4,6 @@ import React, { useState, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { 
   Search, 
-  SlidersHorizontal, 
   Sparkles, 
   X, 
   Filter,
@@ -12,10 +11,28 @@ import {
   Footprints,
   Shirt,
   Watch,
-  Briefcase
+  Briefcase,
+  Glasses,
+  Gem,
+  Monitor,
+  Package,
+  Store,
 } from "lucide-react";
 import { PRODUCTS, CATEGORIES, Product } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
+
+const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  digital: FileText,
+  suppliers: Store,
+  sneakers: Footprints,
+  streetwear: Shirt,
+  watches: Watch,
+  bags: Briefcase,
+  glasses: Glasses,
+  jewelry: Gem,
+  electronics: Monitor,
+  other: Package,
+};
 
 function CatalogContent() {
   const searchParams = useSearchParams();
@@ -91,6 +108,7 @@ function CatalogContent() {
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           {CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat.id;
+            const Icon = CATEGORY_ICONS[cat.id];
             return (
               <button
                 key={cat.id}
@@ -98,14 +116,10 @@ function CatalogContent() {
                 className={`px-4 py-2.5 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-2 border ${
                   isSelected
                     ? "bg-[#ccff00] text-black border-[#ccff00] shadow-md shadow-[#ccff00]/20"
-                    : "bg-[#141416] text-zinc-300 border-zinc-800 hover:border-zinc-700 hover:text-white"
+                    : "bg-black text-zinc-300 border-zinc-800 hover:border-zinc-700 hover:text-white"
                 }`}
               >
-                {cat.id === "digital" && <FileText className="w-3.5 h-3.5" />}
-                {cat.id === "sneakers" && <Footprints className="w-3.5 h-3.5" />}
-                {cat.id === "streetwear" && <Shirt className="w-3.5 h-3.5" />}
-                {cat.id === "watches" && <Watch className="w-3.5 h-3.5" />}
-                {cat.id === "bags" && <Briefcase className="w-3.5 h-3.5" />}
+                {Icon && <Icon className="w-3.5 h-3.5" />}
                 <span>{cat.name}</span>
               </button>
             );
@@ -113,7 +127,7 @@ function CatalogContent() {
         </div>
 
         {/* Filter Controls Row */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#121214] border border-[#27272a]">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-4 rounded-2xl bg-black border border-[#27272a]">
           {/* Search Box */}
           <div className="relative flex-1">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
@@ -122,7 +136,7 @@ function CatalogContent() {
               placeholder="Keresés név, márka, kategória szerint..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#ccff00]"
+              className="w-full pl-10 pr-4 py-2 bg-black border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#ccff00]"
             />
             {searchQuery && (
               <button
@@ -139,7 +153,7 @@ function CatalogContent() {
             <select
               value={selectedBrand}
               onChange={(e) => setSelectedBrand(e.target.value)}
-              className="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs font-bold uppercase text-white focus:outline-none focus:border-[#ccff00]"
+              className="bg-black border border-zinc-800 rounded-xl px-3 py-2 text-xs font-bold uppercase text-white focus:outline-none focus:border-[#ccff00]"
             >
               <option value="">Minden Márka</option>
               {brands.map((b) => (
@@ -152,7 +166,7 @@ function CatalogContent() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs font-bold uppercase text-white focus:outline-none focus:border-[#ccff00]"
+              className="bg-black border border-zinc-800 rounded-xl px-3 py-2 text-xs font-bold uppercase text-white focus:outline-none focus:border-[#ccff00]"
             >
               <option value="popular">Népszerűség szerint</option>
               <option value="price-asc">Ár: Alacsonytól</option>

@@ -6,14 +6,22 @@ import { Download, Loader2 } from "lucide-react";
 type GuideBuyButtonProps = {
   className?: string;
   label?: string;
+  size?: "default" | "lg";
 };
+
+const SIZE_CLASSES = {
+  default: "px-8 py-4 text-sm",
+  lg: "px-10 py-5 sm:py-6 text-base sm:text-lg",
+} as const;
 
 export function GuideBuyButton({
   className = "",
   label = "MEGVÁSÁROLOM – 1 000 Ft",
+  size = "default",
 }: GuideBuyButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const iconClass = size === "lg" ? "w-5 h-5" : "w-4 h-4";
 
   const handleClick = async () => {
     setLoading(true);
@@ -42,13 +50,13 @@ export function GuideBuyButton({
         type="button"
         onClick={handleClick}
         disabled={loading}
-        className={`cursor-pointer inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-black uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition shadow-xl shadow-[#ccff00]/25 disabled:opacity-60 disabled:cursor-wait w-full ${className}`}
+        className={`cursor-pointer inline-flex items-center justify-center gap-2 rounded-xl font-black uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition shadow-xl shadow-[#ccff00]/25 disabled:opacity-60 disabled:cursor-wait w-full ${SIZE_CLASSES[size]} ${className}`}
       >
         {loading ? (
-          <Loader2 className="w-4 h-4 animate-spin" />
+          <Loader2 className={`${iconClass} animate-spin`} />
         ) : (
           <>
-            <Download className="w-4 h-4" />
+            <Download className={iconClass} />
             <span>{label}</span>
           </>
         )}

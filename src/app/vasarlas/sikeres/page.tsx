@@ -15,7 +15,7 @@ export default function PurchaseSuccessPage() {
           <CheckCircle2 className="w-10 h-10" />
         </div>
         <h1 className="text-2xl sm:text-3xl font-black uppercase font-display">
-          Fizetés sikeres!
+          Sikeres vásárlás!
         </h1>
         <p className="text-sm text-zinc-300 leading-relaxed">
           Köszönjük a vásárlást. Az útmutató <strong className="text-white">hozzáférési linkjét</strong> elküldjük a Stripe-nál megadott e-mail címre (általában 1–2 percen belül).

@@ -11,7 +11,7 @@ export interface Product {
   slug: string;
   name: string;
   brand: string;
-  category: "digital" | "sneakers" | "streetwear" | "watches" | "bags" | "accessories";
+  category: "digital" | "suppliers" | "sneakers" | "streetwear" | "watches" | "bags" | "glasses" | "jewelry" | "electronics" | "other";
   subCategory?: string;
   price: number;
   originalPrice?: number;
@@ -327,9 +327,14 @@ export const PRODUCTS: Product[] = [
 
 export const CATEGORIES = [
   { id: "all", name: "Összes termék", icon: "Sparkles" },
-  { id: "digital", name: "Digitális Útmutatók", icon: "FileText", isHighlight: true },
-  { id: "sneakers", name: "Sneakerek (1/1)", icon: "Footprints" },
-  { id: "streetwear", name: "Streetwear & Ruházat", icon: "Shirt" },
-  { id: "watches", name: "Prémium Órák", icon: "Watch" },
-  { id: "bags", name: "Táskák & Kiegészítők", icon: "Briefcase" }
+  { id: "digital", name: "Útmutatók", icon: "FileText", isHighlight: true },
+  { id: "suppliers", name: "Eladók", icon: "Store" },
+  { id: "sneakers", name: "Cipő", icon: "Footprints" },
+  { id: "streetwear", name: "Ruha", icon: "Shirt" },
+  { id: "watches", name: "Óra", icon: "Watch" },
+  { id: "bags", name: "Táska", icon: "Briefcase" },
+  { id: "glasses", name: "Szemüveg", icon: "Glasses" },
+  { id: "jewelry", name: "Ékszer", icon: "Gem" },
+  { id: "electronics", name: "Elektronika", icon: "Monitor" },
+  { id: "other", name: "Egyéb", icon: "Package" },
 ];

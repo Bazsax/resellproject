@@ -9,7 +9,7 @@ export const ReplicaGrid: React.FC = () => {
   const items = PRODUCTS.filter((p) => !p.isDigital).slice(0, 4);
 
   return (
-    <section className="w-full bg-black py-12 border-b border-[#27272a]">
+    <section className="w-full bg-black py-9">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         {/* Header from Screenshot 2 */}
         <div className="flex items-end justify-between">

@@ -31,8 +31,8 @@ export const CategoryShowcase: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-black py-12 space-y-12 border-b border-[#27272a]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section className="w-full bg-black py-9 space-y-9">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-9">
         {/* Row 1: JORDAN */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">

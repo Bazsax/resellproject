@@ -6,7 +6,6 @@ import {
   Flame, 
   Star,
   Lock,
-  ArrowRight,
   Zap,
   TrendingUp,
   Users,
@@ -15,16 +14,20 @@ import {
   Quote,
   Coins,
   Check,
-  X
+  X,
+  Package,
+  Search,
+  Sparkles,
+  AlertTriangle,
 } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import {
   GUIDE_PROOF_IMAGES,
   GUIDE_REVIEWS,
   GUIDE_STEPS,
-  GUIDE_FAQ,
 } from "@/data/guide";
 import { GuideBuyButton } from "@/components/GuideBuyButton";
+import { GuideFaqAccordion } from "@/components/GuideFaqAccordion";
 
 export const metadata = {
   title: "Az Első Millió – Replica Reselling Útmutató 2026 | EgyPerEgy",
@@ -35,7 +38,7 @@ const SECTION = "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8";
 
 function SectionHeader({ label, title, description }: { label: string; title: string; description?: string }) {
   return (
-    <div className="text-center space-y-2 mb-10">
+    <div className="text-center space-y-2 mb-8">
       <span className="text-xs font-black uppercase tracking-wider text-[#ccff00]">{label}</span>
       <h2 className="text-2xl sm:text-3xl font-black uppercase text-white font-display">{title}</h2>
       {description && <p className="text-sm text-zinc-400">{description}</p>}
@@ -61,9 +64,9 @@ export default function GuidePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
             <div className="space-y-6 flex flex-col">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ccff00] text-black text-xs font-black uppercase tracking-wider">
+              <div className="inline-flex w-fit items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ccff00] text-black text-xs font-black uppercase tracking-wider">
                 <Flame className="w-4 h-4" />
-                <span>2026-os Kiadás • Azonnali Letöltés</span>
+                <span>Csak limitált ideig</span>
               </div>
 
               <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter text-white font-display leading-[0.95]">
@@ -75,7 +78,7 @@ export default function GuidePage() {
               </h1>
 
               <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
-                Pár nap alatt kereshető meg másnak a havi bére – ha tudod, mit csinálsz. Ez az útmutató megadja neked a rendszert. Nem elméletet, hanem egy módszert, ami már működik.
+                Pár nap alatt megkeresheted másnak a teljes havi bérét, ha tudod, mit csinálsz. Ez az útmutató megadja neked ezt a lehetőséget. Nem elméletet, hanem egy módszert, ami már bizonyítottan működik.
               </p>
 
               <div className="flex flex-wrap gap-4 text-xs text-zinc-400">
@@ -84,7 +87,7 @@ export default function GuidePage() {
                   128+ elégedett vásárló
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  <Star className="w-4 h-4 fill-[#ccff00] text-[#ccff00]" />
                   5.0 értékelés
                 </span>
                 <span className="flex items-center gap-1.5">
@@ -93,31 +96,37 @@ export default function GuidePage() {
                 </span>
               </div>
 
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ccff00] block mb-1.5">
-                Limitált ideig elérhető
-              </span>
+              <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#ccff00]/5 via-[#121214] to-[#121214] border border-[#ccff00]/30 shadow-2xl space-y-6 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-48 h-48 bg-[#ccff00]/10 blur-[80px] rounded-full pointer-events-none" />
+                <div className="relative z-10 space-y-6">
+                <div className="space-y-3">
+                  <span className="text-lg sm:text-xl text-zinc-400 line-through block text-left font-bold font-display tracking-wide decoration-zinc-500">
+                    10 000 Ft helyett
+                  </span>
 
-              <div className="p-5 rounded-2xl bg-[#121214] border-2 border-[#27272a] shadow-2xl space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div>
-                    <span className="text-xs text-zinc-500 line-through block">10 000 Ft helyett</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-3xl sm:text-4xl font-black text-[#ccff00]">1 000 Ft</span>
-                      <span className="text-xs font-extrabold px-2 py-0.5 rounded bg-red-600/80 text-white uppercase self-center">-50%</span>
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <span className="text-4xl sm:text-5xl font-black font-display text-[#ccff00] tracking-tight">1 000 Ft</span>
+                      <span className="text-sm font-black px-3 py-1.5 rounded-md bg-red-600 text-white uppercase tracking-wider shadow-lg shadow-red-600/30">-90%</span>
+                    </div>
+                    <div className="flex flex-col items-start sm:items-end justify-center gap-2">
+                      <div className="flex gap-1">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 fill-[#ccff00] text-[#ccff00]" />
+                        ))}
+                      </div>
+                      <span className="text-sm sm:text-base text-zinc-300 font-semibold">5.0 / 5.0 (128 eladás)</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-zinc-300 font-semibold">
-                    <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    <span>5.0 / 5.0 (128 eladás)</span>
-                  </div>
                 </div>
-                <GuideBuyButton label="MEGVÁSÁROLOM ÉS HOZZÁFÉREK" />
-                <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] text-zinc-400">
+                <GuideBuyButton label="MEGVÁSÁROLOM ÉS HOZZÁFÉREK" size="lg" />
+                <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] text-zinc-400 pt-1">
                   <span className="flex items-center gap-1"><Lock className="w-3.5 h-3.5 text-[#ccff00]" /> Biztonságos Stripe fizetés</span>
                   <span>•</span>
                   <span>Azonnali letöltés</span>
                   <span>•</span>
                   <span>Örökös frissítés</span>
+                </div>
                 </div>
               </div>
             </div>
@@ -149,7 +158,7 @@ export default function GuidePage() {
       </section>
 
       {/* Millionaire from small start */}
-      <section className="py-16 border-t border-zinc-800">
+      <section className="py-12">
         <div className={SECTION}>
           <div className="rounded-3xl bg-gradient-to-br from-[#ccff00]/5 via-[#121214] to-[#121214] border border-[#ccff00]/30 p-8 sm:p-10 space-y-8 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-48 h-48 bg-[#ccff00]/10 blur-[80px] rounded-full pointer-events-none" />
@@ -201,31 +210,98 @@ export default function GuidePage() {
       </section>
 
       {/* The Game */}
-      <section className="py-16 border-t border-zinc-800">
+      <section className="py-12">
         <div className={SECTION}>
-          <div className="rounded-3xl bg-[#121214] border border-[#27272a] p-8 sm:p-10 text-center space-y-6">
+          <div className="text-center space-y-2 mb-8">
             <Zap className="w-10 h-10 text-[#ccff00] mx-auto" />
             <h2 className="text-2xl sm:text-3xl font-black uppercase text-white font-display">
-              Ennyi az egész játék
+              Az egész játék
             </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm font-bold text-zinc-300">
-              <span className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Találj olcsón</span>
-              <ChevronRight className="w-5 h-5 text-[#ccff00] hidden sm:block" />
-              <span className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Tedd fel</span>
-              <ChevronRight className="w-5 h-5 text-[#ccff00] hidden sm:block" />
-              <span className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Add el</span>
-              <ChevronRight className="w-5 h-5 text-[#ccff00] hidden sm:block" />
-              <span className="px-4 py-2 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/40 text-[#ccff00]">Ismételd</span>
-            </div>
-            <p className="text-sm text-zinc-400">
-              Bárki meg tudja csinálni – de a legtöbb ember elbukik, mert nincs rendszere. Az útmutató pont ezt adja meg: egy működő, követhető folyamatot, amit mások már bizonyítottak.
+            <p className="text-sm text-zinc-400 max-w-2xl mx-auto">
+              Egy ismételhető ciklus, amit a legtöbb ember nem fut le rendesen.
             </p>
+          </div>
+
+          <div className="rounded-3xl bg-[#121214] border border-[#27272a] p-6 sm:p-8 space-y-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-bold text-zinc-300">
+              <span className="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Találj olcsón</span>
+              <ChevronRight className="w-4 h-4 text-[#ccff00] hidden sm:block flex-shrink-0" />
+              <span className="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Tedd fel</span>
+              <ChevronRight className="w-4 h-4 text-[#ccff00] hidden sm:block flex-shrink-0" />
+              <span className="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Add el</span>
+              <ChevronRight className="w-4 h-4 text-[#ccff00] hidden sm:block flex-shrink-0" />
+              <span className="px-3.5 py-2 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/40 text-[#ccff00]">Ismételd</span>
+            </div>
+
+            {/* A modell – standalone */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-black/40 border border-zinc-800 text-left space-y-2.5">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-700 flex items-center justify-center flex-shrink-0">
+                  <Coins className="w-4 h-4 text-[#ccff00]" />
+                </div>
+                <h3 className="text-base sm:text-lg font-black uppercase text-white font-display">A viszonteladási modell</h3>
+              </div>
+              <p className="text-sm text-zinc-400 leading-relaxed">
+                Veszel olcsón, eladsz drágábban – de nem mindegy, mennyi a profitod.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#ccff00]/5 border border-[#ccff00]/30 text-left space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/40 flex items-center justify-center flex-shrink-0">
+                    <TrendingUp className="w-4 h-4 text-[#ccff00]" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-black uppercase text-[#ccff00] font-display">A replikák előnye</h3>
+                </div>
+                <p className="text-sm text-zinc-300 leading-relaxed">
+                  Az árrés lényegesen nagyobb máshoz képest. Mi ezt a kaput használjuk ki – ez az egész „játék”.
+                </p>
+              </div>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-red-950/20 border border-red-800/40 text-left space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-red-950/40 border border-red-800/50 flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="w-4 h-4 text-red-400" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-black uppercase text-red-400 font-display">A kockázat</h3>
+                </div>
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  Rossz termék, platform tiltás, eladás veszteséggel – ezért kell módszer a helyes döntésekhez.
+                </p>
+              </div>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-red-950/20 border border-red-800/40 text-left space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-red-950/40 border border-red-800/50 flex items-center justify-center flex-shrink-0">
+                    <X className="w-4 h-4 text-red-400" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-black uppercase text-red-400 font-display">Így buknak el</h3>
+                </div>
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  A legtöbb ember azért bukik el, mert nincs rendszere, nem tudja a trükköket, random silány terméket vesz, és az első sikertelen próbálkozás után egyből feladja.
+                </p>
+              </div>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#ccff00]/5 border border-[#ccff00]/30 text-left space-y-2.5">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/40 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-[#ccff00]" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-black uppercase text-[#ccff00] font-display">A nyerő módszer</h3>
+                </div>
+                <p className="text-sm text-zinc-300 leading-relaxed">
+                  Velünk annyi a különbség, hogy mi nem adtuk fel, hanem{" "}
+                  <span className="text-white font-semibold">megtaláltuk a milliókat kapitalizáló módszert, amihez limitált ideig most te is hozzáférhetsz</span>.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Steps */}
-      <section id="beszallitok" className="py-16 border-t border-zinc-800">
+      <section id="beszallitok" className="py-12">
         <div className={SECTION}>
           <SectionHeader
             label="Lépésről lépésre"
@@ -252,7 +328,7 @@ export default function GuidePage() {
       </section>
 
       {/* Proof Gallery – single row */}
-      <section id="bizonyitekok" className="py-16 border-t border-zinc-800">
+      <section id="bizonyitekok" className="py-12">
         <div className={SECTION}>
           <SectionHeader
             label="Valós eredmények"
@@ -287,7 +363,7 @@ export default function GuidePage() {
       </section>
 
       {/* Reviews */}
-      <section className="py-16 border-t border-zinc-800">
+      <section className="py-12">
         <div className={SECTION}>
           <SectionHeader
             label="Vásárlói vélemények"
@@ -303,7 +379,7 @@ export default function GuidePage() {
                   </div>
                   <div className="flex gap-0.5">
                     {Array.from({ length: review.rating }).map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#ccff00] text-[#ccff00]" />
                     ))}
                   </div>
                 </div>
@@ -323,7 +399,7 @@ export default function GuidePage() {
       </section>
 
       {/* Value Comparison */}
-      <section className="py-16 border-t border-zinc-800">
+      <section className="py-12">
         <div className={SECTION}>
           <div className="rounded-3xl bg-zinc-950 border border-zinc-800 p-6 sm:p-10 space-y-8">
             <h3 className="text-2xl sm:text-3xl font-black uppercase text-white font-display text-center">
@@ -331,12 +407,12 @@ export default function GuidePage() {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
               <div className="p-5 rounded-xl bg-red-950/30 border border-red-800/40 space-y-4">
-                <h4 className="text-sm font-bold text-red-400 uppercase flex items-center gap-2">
-                  <X className="w-4 h-4" /> Útmutató nélkül
+                <h4 className="text-base sm:text-lg font-black text-red-400 uppercase font-display">
+                  Útmutató nélkül
                 </h4>
                 <ul className="space-y-2.5">
                   {[
-                    { text: "Megtartod az ezer forintod", pro: true },
+                    { text: "Megtartod az ezer forintod", pro: true, muted: true },
                     { text: "Lemaradsz több millió forintról", pro: false },
                     { text: "Hónapokig próbálkozol vakon", pro: false },
                     { text: "Rossz beszállítókon buksz el pénzt", pro: false },
@@ -353,7 +429,7 @@ export default function GuidePage() {
                       ) : (
                         <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
                       )}
-                      <span className={item.pro ? "text-[#ccff00] font-medium" : "text-zinc-400"}>
+                      <span className={item.muted ? "text-zinc-400" : item.pro ? "text-[#ccff00] font-medium" : "text-zinc-400"}>
                         {item.text}
                       </span>
                     </li>
@@ -362,8 +438,8 @@ export default function GuidePage() {
               </div>
 
               <div className="p-5 rounded-xl bg-lime-950/30 border border-[#ccff00]/40 space-y-4">
-                <h4 className="text-sm font-bold text-[#ccff00] uppercase flex items-center gap-2">
-                  <Check className="w-4 h-4" /> Az útmutatóval
+                <h4 className="text-base sm:text-lg font-black text-[#ccff00] uppercase font-display">
+                  Az útmutatóval
                 </h4>
                 <ul className="space-y-2.5">
                   {[
@@ -391,28 +467,15 @@ export default function GuidePage() {
       </section>
 
       {/* FAQ */}
-      <section id="vamolas" className="py-16 border-t border-zinc-800">
+      <section id="vamolas" className="py-12">
         <div className={SECTION}>
           <SectionHeader label="GYIK" title="Gyakori kérdések" />
-          <div className="space-y-3">
-            {GUIDE_FAQ.map((faq, i) => (
-              <details
-                key={i}
-                className="group p-5 rounded-2xl bg-[#121214] border border-[#27272a] open:border-[#ccff00]/40 transition"
-              >
-                <summary className="text-sm font-black uppercase text-white cursor-pointer list-none flex items-center justify-between gap-4">
-                  {faq.q}
-                  <ChevronRight className="w-4 h-4 text-zinc-500 group-open:rotate-90 transition-transform flex-shrink-0" />
-                </summary>
-                <p className="text-xs text-zinc-400 mt-3 leading-relaxed">{faq.a}</p>
-              </details>
-            ))}
-          </div>
+          <GuideFaqAccordion />
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 border-t border-zinc-800">
+      <section className="py-12">
         <div className={SECTION}>
           <div className="rounded-3xl bg-gradient-to-br from-[#ccff00]/10 via-[#121214] to-black border-2 border-[#ccff00]/40 p-8 sm:p-12 text-center space-y-6 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#ccff00]/5 blur-[80px] rounded-full pointer-events-none" />
@@ -424,14 +487,7 @@ export default function GuidePage() {
               Nem kell hozzá több, mint egy működő rendszer és a döntés, hogy elindulsz. A részletek az útmutatóban várnak.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-              <GuideBuyButton label="KEZDD EL MOST – 1 000 Ft" className="!w-auto" />
-              <Link
-                href="/egyedi-beszerzes"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl text-xs font-black uppercase tracking-wider bg-zinc-900 border border-zinc-700 text-white hover:border-[#ccff00] hover:text-[#ccff00] transition"
-              >
-                Inkább egyedi beszerzést kérek
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <GuideBuyButton label="KEZDD EL MOST – 1 000 Ft" size="lg" className="!w-auto sm:!min-w-[280px]" />
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 relative z-10">
               <span className="flex items-center gap-1"><ShieldCheck className="w-4 h-4 text-[#ccff00]" /> Stripe fizetés</span>
@@ -439,6 +495,72 @@ export default function GuidePage() {
               <span>Azonnali letöltés</span>
               <span>•</span>
               <span>Örökös frissítés</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sourcing alternative */}
+      <section id="egyedi-beszerzes" className="py-12">
+        <div className={SECTION}>
+          <SectionHeader
+            label="Alternatíva"
+            title="Nem akarsz magad beszerezni?"
+            description="Ha nem veszed meg az útmutatót, az egyedi beszerzési szolgáltatásunk ugyanarra a célra ad megoldást – csak más úton."
+          />
+
+          <div className="rounded-3xl bg-[#121214] border border-[#27272a] p-8 sm:p-10 space-y-8">
+            <p className="text-sm text-zinc-300 leading-relaxed text-center max-w-3xl mx-auto">
+              Nem mindenkinek kell (vagy akar) saját beszállítói hálózatot építeni. Ha inkább kész terméket szeretnél, mi intézzük a teljes folyamatot – a megfelelő gyártó kiválasztásától a QC fotókon át a szállításig.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                {
+                  icon: Search,
+                  title: "Tapasztalat, nem munka",
+                  text: "A díjért nem az időmet fizeted – hanem az évek alatt felépített sourcing tudásomat, kapcsolataimat és a rossz döntéseket, amiket helyetted kiszűrök.",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Ellenőrzött minőség",
+                  text: "QC fotók, megbízható 1/1 gyári források és átlátható kommunikáció – nem kell találgatnod, melyik eladóban bízhatsz.",
+                },
+                {
+                  icon: Package,
+                  title: "Gyors, kényelmes út",
+                  text: "Küldd el a képet vagy linket, megadod a méretet – mi beszerezzük és házhoz juttatjuk. Ideális, ha most termék kell, nem rendszer.",
+                },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className="p-5 rounded-2xl bg-black/50 border border-zinc-800 space-y-3"
+                  >
+                    <Icon className="w-8 h-8 text-[#ccff00]" />
+                    <h3 className="text-sm font-black uppercase text-white font-display">{item.title}</h3>
+                    <p className="text-xs text-zinc-400 leading-relaxed">{item.text}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="rounded-2xl bg-gradient-to-br from-[#ccff00]/5 to-transparent border border-[#ccff00]/30 p-6 sm:p-8 text-center space-y-4">
+              <Sparkles className="w-8 h-8 text-[#ccff00] mx-auto" />
+              <h3 className="text-lg sm:text-xl font-black uppercase text-white font-display">
+                Miért ajánlott az egyedi beszerzés?
+              </h3>
+              <p className="text-sm text-zinc-300 leading-relaxed max-w-2xl mx-auto">
+                Ha nem szeretnél tanulni, próbálkozni és hibákból okosodni, a sourcing szolgáltatás a biztonságosabb választás. Fizetsz azért, hogy valaki, aki ezt naponta csinálja, a helyedben hozza meg a jó döntéseket – és te csak a terméket kapod meg.
+              </p>
+              <Link
+                href="/egyedi-beszerzes"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-xs font-black uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition"
+              >
+                Egyedi beszerzés igénylése
+                <ChevronRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>

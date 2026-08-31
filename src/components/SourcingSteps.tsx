@@ -25,8 +25,8 @@ export const SourcingSteps: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#0d0d0f] py-14 sm:py-20 border-b border-[#27272a]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section className="w-full bg-[#0d0d0f] py-10 sm:py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-9">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-black uppercase text-[#ccff00] tracking-wider">
             <Sparkles className="w-3.5 h-3.5" /> Hogyan Működik?

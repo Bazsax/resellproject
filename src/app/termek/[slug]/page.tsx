@@ -382,7 +382,7 @@ export default function ProductDetailPage({ params }: PageProps) {
       </div>
 
       {/* 10. Related Products Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 mt-16 border-t border-zinc-800 space-y-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 mt-16 space-y-6">
         <div className="flex items-center justify-between">
           <h3 className="text-xl sm:text-2xl font-black uppercase text-white tracking-tight font-display">
             HASZONLÓ TERMÉKEK

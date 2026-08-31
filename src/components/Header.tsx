@@ -30,11 +30,11 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { label: "FŐOLDAL", href: "/" },
-    { label: "KATALÓGUS", href: "/katalogus" },
     { label: "RESELL ÚTMUTATÓ", href: "/utmutato", isHighlight: true },
     { label: "EGYEDI BESZERZÉS", href: "/egyedi-beszerzes" },
-    { label: "MÉRETTÁBLÁZAT", href: "/merettablazat" },
+    { label: "KATALÓGUS", href: "/katalogus" },
     { label: "GYIK", href: "/gyik" },
+    { label: "MÉRETTÁBLÁZAT", href: "/merettablazat" },
     { label: "KAPCSOLAT", href: "/kapcsolat" },
   ];
 
@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
             <div className="flex items-center gap-2 truncate">
               <span className="inline-block animate-pulse">⚡</span>
               <span className="font-extrabold">ÚJ RESELL DOKUMENTÁCIÓ 2026</span>
-              <span className="hidden sm:inline opacity-80 font-sans normal-case">— 25+ Ellenőrzött beszállítóval & Vámolási kisokossal!</span>
+              <span className="hidden sm:inline opacity-80 font-sans normal-case">— Bizonyított módszer, több millió profit · azonnali letöltés</span>
               <Link
                 href="/utmutato"
                 className="ml-2 underline font-black text-black hover:opacity-75 inline-flex items-center"
@@ -186,26 +186,29 @@ export const Header: React.FC = () => {
               <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest px-3 mb-2 font-display">
                 NAVIGÁCIÓ
               </p>
-              {navLinks.map((item) => (
+              {navLinks.map((item) => {
+                const isActive = pathname === item.href;
+                return (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`flex items-center justify-between px-3 py-3 rounded-xl text-xs font-black uppercase tracking-wider font-btn transition ${
-                    pathname === item.href && !item.isHighlight
+                    isActive
                       ? "bg-[#ccff00] text-black"
-                      : pathname === item.href
-                      ? "bg-zinc-800/80 text-white"
                       : "text-zinc-300 hover:bg-zinc-800/80 hover:text-white"
                   }`}
                 >
                   <span className="flex items-center gap-2.5">
-                    {item.isHighlight && <Flame className="w-4 h-4 text-[#ccff00]" />}
+                    {item.isHighlight && (
+                      <Flame className={`w-4 h-4 ${isActive ? "text-black" : "text-[#ccff00]"}`} />
+                    )}
                     {item.label}
                   </span>
                   <ChevronRight className="w-4 h-4 opacity-50" />
                 </Link>
-              ))}
+              );
+              })}
 
               <div className="pt-4 mt-4 border-t border-[#27272a]">
                 <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest px-3 mb-2 font-display">

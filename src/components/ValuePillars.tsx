@@ -21,7 +21,7 @@ export const ValuePillars: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-black py-8 sm:py-10 border-b border-[#27272a]">
+    <section className="w-full bg-black py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           {pillars.map((item, idx) => {

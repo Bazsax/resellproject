@@ -62,7 +62,13 @@ body {
 h1, h2, h3, h4, h5, h6, .font-display {
   font-family: var(--font-antry), "Antry Sans", sans-serif;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+}
+
+h1 {
+  letter-spacing: 0em;
+}
+h2,h3,h4,h5,h6 {
+  letter-spacing: 0.02em;
 }
 
 /* 2. Buttons: Bold Nekst, Uppercase */

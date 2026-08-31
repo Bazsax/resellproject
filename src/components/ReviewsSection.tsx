@@ -5,7 +5,7 @@ import { REVIEWS } from "@/data/reviews";
 
 export const ReviewsSection: React.FC = () => {
   return (
-    <section className="w-full bg-black py-12 sm:py-16 border-b border-[#27272a]">
+    <section className="w-full bg-black py-9 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Heading from screenshot 2 */}
         <div>

@@ -14,6 +14,15 @@ import {
 import { GuideBuyButton } from "@/components/GuideBuyButton";
 import { PRODUCTS } from "@/data/products";
 
+const GUIDE_BULLETS = [
+  "Kész, bizonyított rendszerrel indulsz – nem elmélet",
+  "Kihagyod a drága próbálkozásokat és bukó beszállítókat",
+  "Tudod, mit szerezz be és hol add el",
+  "Az első eladások gyorsabban jönnek",
+  "Az ezer forintod megtérülhet az első héten",
+  "Azonnali hozzáférés e-mailben · örökös frissítés",
+];
+
 export const DigitalGuideSpotlight: React.FC = () => {
   const guideProduct = PRODUCTS.find((p) => p.isDigital) || PRODUCTS[1];
 
@@ -24,9 +33,9 @@ export const DigitalGuideSpotlight: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="rounded-3xl bg-[#141417] border-2 border-[#ccff00]/40 p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
           <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-zinc-800">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ccff00] text-black text-xs font-black uppercase tracking-wider">
+            <div className="inline-flex w-fit items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ccff00] text-black text-xs font-black uppercase tracking-wider">
               <Flame className="w-3.5 h-3.5" />
-              <span>2026-os Kiadás • Azonnali Letöltés</span>
+              <span>Csak limitált ideig</span>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-zinc-400">
               <span className="flex items-center gap-1">
@@ -35,8 +44,13 @@ export const DigitalGuideSpotlight: React.FC = () => {
               </span>
               <span className="hidden sm:inline text-zinc-600">•</span>
               <span className="flex items-center gap-1">
-                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                <Star className="w-3.5 h-3.5 fill-[#ccff00] text-[#ccff00]" />
                 5.0 értékelés
+              </span>
+              <span className="hidden sm:inline text-zinc-600">•</span>
+              <span className="flex items-center gap-1">
+                <TrendingUp className="w-3.5 h-3.5 text-[#ccff00]" />
+                Bizonyított módszer
               </span>
             </div>
           </div>
@@ -44,29 +58,21 @@ export const DigitalGuideSpotlight: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch pt-8">
             <div className="flex flex-col space-y-5 order-2 lg:order-1">
               <div>
-                <span className="text-xs font-black uppercase tracking-widest text-[#ccff00] block mb-1">
-                  Replica reselling útmutató
-                </span>
                 <h2 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-black uppercase text-white tracking-tight font-display leading-[1.05]">
                   AZ ELSŐ MILLIÓ –{" "}
-                  <span className="text-[#ccff00]">REPLICA RESELLING</span> ÚTMUTATÓ
+                  <span className="text-[#ccff00] drop-shadow-[0_0_20px_rgba(204,255,0,0.3)]">
+                    REPLICA RESELLING
+                  </span>{" "}
+                  ÚTMUTATÓ
                 </h2>
               </div>
 
               <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
-                Pár nap alatt kereshető meg másnak a havi bére – ha tudod, mit csinálsz. Ez az útmutató megadja neked a rendszert:{" "}
-                <span className="text-white font-bold">olcsón beszerzel, felteszed, eladod, ismétled</span> – nem elméletet, hanem egy módszert, ami már működik.
+                Pár nap alatt megkeresheted másnak a teljes havi bérét, ha tudod, mit csinálsz. Ez az útmutató megadja neked ezt a lehetőséget. Nem elméletet, hanem egy módszert, ami már bizonyítottan működik.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 flex-1">
-                {[
-                  "Bizonyított, ismételhető rendszer – nem elmélet",
-                  "Ellenőrzött beszállítók – kihagyod a bukó próbálkozásokat",
-                  "Eladási módszer – tudod, mit szerezz be és hol add el",
-                  "Skálázható üzlet az első millió felé",
-                  "Magyarországra szabott szállítás és vámolás",
-                  "Azonnali hozzáférés e-mailben · örökös frissítés",
-                ].map((text, i) => (
+                {GUIDE_BULLETS.map((text, i) => (
                   <div key={i} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-200">
                     <CheckCircle2 className="w-4 h-4 text-[#ccff00] flex-shrink-0 mt-0.5" />
                     <span>{text}</span>
@@ -76,11 +82,6 @@ export const DigitalGuideSpotlight: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-400 font-medium">
                 <span className="flex items-center gap-1">
-                  <TrendingUp className="w-4 h-4 text-[#ccff00]" />
-                  Bizonyított módszer
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1">
                   <ShieldCheck className="w-4 h-4 text-[#ccff00]" />
                   Biztonságos Stripe fizetés
                 </span>
@@ -89,6 +90,8 @@ export const DigitalGuideSpotlight: React.FC = () => {
                   <Lock className="w-4 h-4 text-[#ccff00]" />
                   Azonnali letöltés
                 </span>
+                <span>•</span>
+                <span>Örökös frissítés</span>
               </div>
             </div>
 
@@ -113,29 +116,35 @@ export const DigitalGuideSpotlight: React.FC = () => {
                 </div>
               </div>
 
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ccff00] block mb-1.5">
-                Limitált ideig elérhető
-              </span>
-
-              <div className="shrink-0 p-3 rounded-xl bg-black border border-zinc-800 text-center lg:text-left">
-                <span className="text-[11px] text-zinc-500 line-through block font-medium">
-                  10 000 Ft helyett
-                </span>
-                <div className="flex items-center gap-2 justify-center lg:justify-start">
-                  <span className="text-2xl font-black text-[#ccff00]">
-                    1 000 Ft
+              <div className="shrink-0 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#ccff00]/5 via-[#121214] to-[#121214] border border-[#ccff00]/30 shadow-xl space-y-4 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-32 h-32 bg-[#ccff00]/10 blur-[60px] rounded-full pointer-events-none" />
+                <div className="relative z-10 space-y-3">
+                  <span className="text-sm sm:text-base text-zinc-400 line-through block text-left font-bold font-display tracking-wide decoration-zinc-500">
+                    10 000 Ft helyett
                   </span>
-                  <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-red-600/80 text-white self-center">
-                    -50% AKCIÓ
-                  </span>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-2xl sm:text-3xl font-black font-display text-[#ccff00] tracking-tight">
+                        1 000 Ft
+                      </span>
+                      <span className="text-xs font-black px-2.5 py-1 rounded-md bg-red-600 text-white uppercase tracking-wider shadow-lg shadow-red-600/30">
+                        -90%
+                      </span>
+                    </div>
+                    <div className="flex flex-col items-start sm:items-end gap-1.5">
+                      <div className="flex gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-[#ccff00] text-[#ccff00]" />
+                        ))}
+                      </div>
+                      <span className="text-xs sm:text-sm text-zinc-300 font-semibold">5.0 / 5.0 (128 eladás)</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className="shrink-0 flex flex-col gap-2">
-                <GuideBuyButton
-                  label="MEGVÁSÁROLOM ÉS HOZZÁFÉREK"
-                  size="lg"
-                />
+                <GuideBuyButton label="MEGVÁSÁROLOM ÉS HOZZÁFÉREK" size="lg" />
 
                 <Link
                   href="/utmutato"

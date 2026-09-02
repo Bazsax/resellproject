@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 
 type GuideBuyButtonProps = {
@@ -10,18 +10,42 @@ type GuideBuyButtonProps = {
 };
 
 const SIZE_CLASSES = {
-  default: "px-8 py-4 text-sm",
-  lg: "px-10 py-5 sm:py-6 text-base sm:text-lg",
+  default: "px-5 py-4 text-sm",
+  lg: "px-6 py-5 sm:py-6 text-base sm:text-lg",
 } as const;
 
 export function GuideBuyButton({
   className = "",
-  label = "MEGVÁSÁROLOM – 1 000 Ft",
+  label = "VÁSÁRLÁS",
   size = "default",
 }: GuideBuyButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const iconClass = size === "lg" ? "w-5 h-5" : "w-4 h-4";
+  const iconClass = size === "lg" ? "w-6 h-6" : "w-5 h-5";
+
+  useEffect(() => {
+    const resetLoading = () => setLoading(false);
+
+    const onPageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) resetLoading();
+    };
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") resetLoading();
+    };
+
+    const onPageHide = () => resetLoading();
+
+    window.addEventListener("pageshow", onPageShow);
+    window.addEventListener("pagehide", onPageHide);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      window.removeEventListener("pageshow", onPageShow);
+      window.removeEventListener("pagehide", onPageHide);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, []);
 
   const handleClick = async () => {
     setLoading(true);
@@ -50,7 +74,7 @@ export function GuideBuyButton({
         type="button"
         onClick={handleClick}
         disabled={loading}
-        className={`cursor-pointer inline-flex items-center justify-center gap-2 rounded-xl font-black uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition shadow-xl shadow-[#ccff00]/25 disabled:opacity-60 disabled:cursor-wait w-full ${SIZE_CLASSES[size]} ${className}`}
+        className={`cursor-pointer inline-flex items-center justify-center gap-2.5 rounded-xl font-black uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition shadow-xl shadow-[#ccff00]/25 disabled:opacity-60 disabled:cursor-wait w-full ${SIZE_CLASSES[size]} ${className}`}
       >
         {loading ? (
           <Loader2 className={`${iconClass} animate-spin`} />

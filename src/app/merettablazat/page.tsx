@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Ruler, Sparkles, CheckCircle2 } from "lucide-react";
 
 export const metadata = {
-  title: "Mérettáblázat & Garancia | EgyPerEgy",
+  title: "Mérettáblázat & Garancia | Direct Supply",
   description: "Cipő (Nike, Jordan) és ruházati (Trapstar, Sp5der) mérettáblázat EU, US, UK és CM értékekkel."
 };
 

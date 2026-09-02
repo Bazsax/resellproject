@@ -96,9 +96,9 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "resell-masterclass-2026-guide",
-    slug: "resell-masterclass-2026-guide",
-    name: "ULTIMATE RESELL MASTERCLASS & BESZÁLLÍTÓI DOKUMENTÁCIÓ (2026)",
-    brand: "ResellHub",
+    slug: "reselling-starterpack",
+    name: "AZ ELSŐ MILLIÓ – RESELLING STARTERPACK",
+    brand: "Direct Supply",
     category: "digital",
     subCategory: "E-book & Útmutató",
     price: 1000,
@@ -326,15 +326,12 @@ export const PRODUCTS: Product[] = [
 ];
 
 export const CATEGORIES = [
-  { id: "all", name: "Összes termék", icon: "Sparkles" },
+  { id: "all", name: "Összes", icon: "Sparkles" },
   { id: "digital", name: "Útmutatók", icon: "FileText", isHighlight: true },
-  { id: "suppliers", name: "Eladók", icon: "Store" },
-  { id: "sneakers", name: "Cipő", icon: "Footprints" },
-  { id: "streetwear", name: "Ruha", icon: "Shirt" },
-  { id: "watches", name: "Óra", icon: "Watch" },
-  { id: "bags", name: "Táska", icon: "Briefcase" },
-  { id: "glasses", name: "Szemüveg", icon: "Glasses" },
-  { id: "jewelry", name: "Ékszer", icon: "Gem" },
-  { id: "electronics", name: "Elektronika", icon: "Monitor" },
-  { id: "other", name: "Egyéb", icon: "Package" },
+  { id: "suppliers", name: "Beszállítók", icon: "Store" },
 ];
+
+/** Products shown in the digital catalog (physical items kept for sourcing examples). */
+export const CATALOG_PRODUCTS = PRODUCTS.filter(
+  (p) => p.isDigital || p.category === "digital" || p.category === "suppliers"
+);

@@ -38,7 +38,7 @@ export function buildGuideAccessEmailHtml({
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Az útmutató hozzáférésed – EgyPerEgy</title>
+  <title>Az útmutató hozzáférésed – Direct Supply</title>
   <!--[if mso]>
   <noscript>
     <xml>
@@ -63,7 +63,7 @@ export function buildGuideAccessEmailHtml({
 </head>
 <body style="margin:0;padding:0;background-color:${BRAND.bg};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
   <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
-    Köszönjük a vásárlást! Itt érheted el az Az Első Millió útmutatót.
+    Köszönjük a vásárlást! Itt érheted el a Reselling Starterpack anyagát.
   </div>
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:${BRAND.bg};">
@@ -81,7 +81,7 @@ export function buildGuideAccessEmailHtml({
           <tr>
             <td class="content-pad" style="padding:28px 28px 8px;text-align:center;">
               <p style="margin:0 0 6px;font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:${BRAND.neon};">
-                EgyPerEgy
+                Direct Supply
               </p>
               <p style="margin:0;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:${BRAND.dim};">
                 rep reselling &amp; sourcing
@@ -106,7 +106,7 @@ export function buildGuideAccessEmailHtml({
             <td class="content-pad" style="padding:16px 28px 24px;">
               <p style="margin:0 0 14px;font-size:15px;line-height:1.6;color:${BRAND.muted};">
                 Köszönjük a vásárlást! Sikeresen megvásároltad az
-                <strong style="color:${BRAND.text};">Az Első Millió – Replica Reselling Útmutató</strong>
+                <strong style="color:${BRAND.text};">Az Első Millió – Reselling Starterpack</strong>
                 digitális anyagát.
               </p>
               <p style="margin:0;font-size:14px;line-height:1.6;color:${BRAND.muted};">
@@ -161,7 +161,7 @@ export function buildGuideAccessEmailHtml({
               ${
                 homeUrl
                   ? `<p style="margin:12px 0 0;font-size:11px;">
-                <a href="${homeUrl}" style="color:${BRAND.muted};text-decoration:underline;">egyperegy.hu</a>
+                <a href="${homeUrl}" style="color:${BRAND.muted};text-decoration:underline;">directsupply.hu</a>
               </p>`
                   : ""
               }
@@ -174,7 +174,7 @@ export function buildGuideAccessEmailHtml({
         </table>
 
         <p style="margin:20px 0 0;font-size:10px;color:${BRAND.dim};text-align:center;">
-          © EgyPerEgy · Digitális útmutató
+          © Direct Supply · Digitális útmutató
         </p>
 
       </td>
@@ -188,9 +188,9 @@ export function buildGuideAccessEmailText({
   guideUrl,
   sessionId,
 }: GuideAccessEmailProps): string {
-  return `Köszönjük a vásárlást – EgyPerEgy
+  return `Köszönjük a vásárlást – Direct Supply
 
-Sikeresen megvásároltad az Az Első Millió – Replica Reselling Útmutató digitális anyagát.
+Sikeresen megvásároltad az Első Millió – Reselling Starterpack digitális anyagát.
 
 Útmutató megnyitása:
 ${guideUrl}

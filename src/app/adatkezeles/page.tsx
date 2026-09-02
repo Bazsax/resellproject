@@ -2,7 +2,7 @@ import React from "react";
 import { Lock } from "lucide-react";
 
 export const metadata = {
-  title: "Adatkezelési Tájékoztató (GDPR) | EgyPerEgy",
+  title: "Adatkezelési Tájékoztató (GDPR) | Direct Supply",
   description: "Adatvédelmi és adatkezelési szabályzat."
 };
 
@@ -27,7 +27,7 @@ export default function PrivacyPage() {
         <section className="space-y-3">
           <h2 className="text-base font-black uppercase text-white font-display">1. Adatkezelő Adatai</h2>
           <p>
-            Az adatok kezelője az EgyPerEgy üzemeltetője. Kapcsolattartási e-mail cím: info@resellbolt.hu.
+            Az adatok kezelője a Direct Supply üzemeltetője. Kapcsolattartási e-mail cím: info@directsupply.hu.
           </p>
         </section>
 

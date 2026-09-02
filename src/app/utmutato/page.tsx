@@ -30,8 +30,8 @@ import { GuideBuyButton } from "@/components/GuideBuyButton";
 import { GuideFaqAccordion } from "@/components/GuideFaqAccordion";
 
 export const metadata = {
-  title: "Az Első Millió – Replica Reselling Útmutató 2026 | EgyPerEgy",
-  description: "A teljes digitális viszonteladói útmutató: ellenőrzött beszállítók, bizonyított eladási módszer és azonnali hozzáférés e-mailben."
+  title: "Az Első Millió – Reselling Starterpack | Direct Supply",
+  description: "A teljes digitális viszonteladói starterpack: ellenőrzött beszállítók, bizonyított eladási módszer és azonnali hozzáférés e-mailben."
 };
 
 const SECTION = "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8";
@@ -59,7 +59,7 @@ export default function GuidePage() {
           <div className="flex items-center gap-2 text-xs font-semibold text-zinc-500 uppercase tracking-wider">
             <Link href="/" className="hover:text-[#ccff00]">Főoldal</Link>
             <span>/</span>
-            <span className="text-[#ccff00]">Az Első Millió Útmutató</span>
+            <span className="text-[#ccff00]">Reselling Starterpack</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
@@ -72,9 +72,8 @@ export default function GuidePage() {
               <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter text-white font-display leading-[0.95]">
                 AZ ELSŐ MILLIÓ – <br />
                 <span className="text-[#ccff00] drop-shadow-[0_0_20px_rgba(204,255,0,0.3)]">
-                  REPLICA RESELLING
-                </span> <br />
-                ÚTMUTATÓ
+                  RESELLING STARTERPACK
+                </span>
               </h1>
 
               <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
@@ -90,10 +89,12 @@ export default function GuidePage() {
                   <Star className="w-4 h-4 fill-[#ccff00] text-[#ccff00]" />
                   5.0 értékelés
                 </span>
+                {/*
                 <span className="flex items-center gap-1.5">
                   <TrendingUp className="w-4 h-4 text-[#ccff00]" />
                   Bizonyított módszer
                 </span>
+                */}
               </div>
 
               <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#ccff00]/5 via-[#121214] to-[#121214] border border-[#ccff00]/30 shadow-2xl space-y-6 relative overflow-hidden">
@@ -119,7 +120,7 @@ export default function GuidePage() {
                     </div>
                   </div>
                 </div>
-                <GuideBuyButton label="MEGVÁSÁROLOM ÉS HOZZÁFÉREK" size="lg" />
+                <GuideBuyButton size="lg" />
                 <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] text-zinc-400 pt-1">
                   <span className="flex items-center gap-1"><Lock className="w-3.5 h-3.5 text-[#ccff00]" /> Biztonságos Stripe fizetés</span>
                   <span>•</span>
@@ -136,7 +137,7 @@ export default function GuidePage() {
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <Image
                     src={guideProduct.images[0]}
-                    alt="Az Első Millió Resell Útmutató borító"
+                    alt="Az Első Millió – Reselling Starterpack borító"
                     fill
                     priority
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -147,7 +148,7 @@ export default function GuidePage() {
                       DIGITÁLIS CSOMAG
                     </span>
                     <h3 className="text-xl font-black uppercase text-white font-display">
-                      AZ ELSŐ MILLIÓ 2026
+                      RESELLING STARTERPACK
                     </h3>
                   </div>
                 </div>
@@ -158,7 +159,7 @@ export default function GuidePage() {
       </section>
 
       {/* Millionaire from small start */}
-      <section className="py-12">
+      <section className="py-9 sm:py-12">
         <div className={SECTION}>
           <div className="rounded-3xl bg-gradient-to-br from-[#ccff00]/5 via-[#121214] to-[#121214] border border-[#ccff00]/30 p-8 sm:p-10 space-y-8 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-48 h-48 bg-[#ccff00]/10 blur-[80px] rounded-full pointer-events-none" />
@@ -196,7 +197,7 @@ export default function GuidePage() {
                   className="p-5 rounded-2xl bg-black/50 border border-zinc-800 text-center space-y-1"
                 >
                   <p className="text-xl sm:text-2xl font-black text-[#ccff00] font-display">{stat.value}</p>
-                  <p className="text-xs font-bold uppercase text-white">{stat.label}</p>
+                  <p className="text-xs font-semibold text-white font-normal">{stat.label}</p>
                   <p className="text-[10px] text-zinc-500">{stat.sub}</p>
                 </div>
               ))}
@@ -210,7 +211,7 @@ export default function GuidePage() {
       </section>
 
       {/* The Game */}
-      <section className="py-12">
+      <section className="py-9 sm:py-12">
         <div className={SECTION}>
           <div className="text-center space-y-2 mb-8">
             <Zap className="w-10 h-10 text-[#ccff00] mx-auto" />
@@ -223,7 +224,7 @@ export default function GuidePage() {
           </div>
 
           <div className="rounded-3xl bg-[#121214] border border-[#27272a] p-6 sm:p-8 space-y-6">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-bold text-zinc-300">
+            <div className="hidden sm:flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-bold text-zinc-300">
               <span className="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Találj olcsón</span>
               <ChevronRight className="w-4 h-4 text-[#ccff00] hidden sm:block flex-shrink-0" />
               <span className="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Tedd fel</span>
@@ -301,7 +302,7 @@ export default function GuidePage() {
       </section>
 
       {/* Steps */}
-      <section id="beszallitok" className="py-12">
+      <section id="beszallitok" className="py-9 sm:py-12">
         <div className={SECTION}>
           <SectionHeader
             label="Lépésről lépésre"
@@ -328,7 +329,7 @@ export default function GuidePage() {
       </section>
 
       {/* Proof Gallery – single row */}
-      <section id="bizonyitekok" className="py-12">
+      <section id="bizonyitekok" className="py-9 sm:py-12">
         <div className={SECTION}>
           <SectionHeader
             label="Valós eredmények"
@@ -363,7 +364,7 @@ export default function GuidePage() {
       </section>
 
       {/* Reviews */}
-      <section className="py-12">
+      <section className="py-9 sm:py-12">
         <div className={SECTION}>
           <SectionHeader
             label="Vásárlói vélemények"
@@ -399,7 +400,7 @@ export default function GuidePage() {
       </section>
 
       {/* Value Comparison */}
-      <section className="py-12">
+      <section className="py-9 sm:py-12">
         <div className={SECTION}>
           <div className="rounded-3xl bg-zinc-950 border border-zinc-800 p-6 sm:p-10 space-y-8">
             <h3 className="text-2xl sm:text-3xl font-black uppercase text-white font-display text-center">
@@ -467,7 +468,7 @@ export default function GuidePage() {
       </section>
 
       {/* FAQ */}
-      <section id="vamolas" className="py-12">
+      <section id="vamolas" className="py-9 sm:py-12">
         <div className={SECTION}>
           <SectionHeader label="GYIK" title="Gyakori kérdések" />
           <GuideFaqAccordion />
@@ -475,7 +476,7 @@ export default function GuidePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-12">
+      <section className="py-9 sm:py-12">
         <div className={SECTION}>
           <div className="rounded-3xl bg-gradient-to-br from-[#ccff00]/10 via-[#121214] to-black border-2 border-[#ccff00]/40 p-8 sm:p-12 text-center space-y-6 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#ccff00]/5 blur-[80px] rounded-full pointer-events-none" />
@@ -487,7 +488,7 @@ export default function GuidePage() {
               Nem kell hozzá több, mint egy működő rendszer és a döntés, hogy elindulsz. A részletek az útmutatóban várnak.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-              <GuideBuyButton label="KEZDD EL MOST – 1 000 Ft" size="lg" className="!w-auto sm:!min-w-[280px]" />
+              <GuideBuyButton size="lg" className="!w-auto sm:!min-w-[200px]" />
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 relative z-10">
               <span className="flex items-center gap-1"><ShieldCheck className="w-4 h-4 text-[#ccff00]" /> Stripe fizetés</span>
@@ -501,7 +502,7 @@ export default function GuidePage() {
       </section>
 
       {/* Sourcing alternative */}
-      <section id="egyedi-beszerzes" className="py-12">
+      <section id="egyedi-beszerzes" className="py-9 sm:py-12">
         <div className={SECTION}>
           <SectionHeader
             label="Alternatíva"

@@ -25,7 +25,7 @@ export const SourcingSteps: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#0d0d0f] py-10 sm:py-14">
+    <section className="w-full bg-[#0a0a0c] py-10 sm:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-9">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-black uppercase text-[#ccff00] tracking-wider">
@@ -58,7 +58,7 @@ export const SourcingSteps: React.FC = () => {
                 </div>
 
                 <div className="space-y-2 pt-2">
-                  <h3 className="text-base sm:text-lg font-black uppercase text-white tracking-tight font-display group-hover:text-[#ccff00] transition">
+                  <h3 className="text-base sm:text-lg font-black uppercase text-white tracking-tight font-display transition">
                     {step.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">

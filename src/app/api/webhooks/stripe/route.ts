@@ -33,7 +33,7 @@ async function sendGuideAccessEmail(to: string, sessionId: string) {
   const { data, error } = await resend.emails.send({
     from: fromEmail!,
     to: [to],
-    subject: "[EgyPerEgy] Az útmutató hozzáférésed",
+    subject: "[Direct Supply] Az útmutató hozzáférésed",
     html,
     text,
   });
@@ -55,7 +55,7 @@ async function sendGuideAccessEmail(to: string, sessionId: string) {
     const notify = await resend.emails.send({
       from: fromEmail!,
       to: [notifyTo],
-      subject: `[EgyPerEgy] Új útmutató vásárlás – ${to}`,
+      subject: `[Direct Supply] Új útmutató vásárlás – ${to}`,
       html: `<p>Új vásárlás: <strong>${to}</strong></p><p>Session: ${sessionId}</p>`,
     });
     if (notify.error) {

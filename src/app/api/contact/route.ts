@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     const resend = new Resend(apiKey);
 
     const html = `
-      <h2>Új kapcsolatfelvétel – EgyPerEgy</h2>
+      <h2>Új kapcsolatfelvétel – Direct Supply</h2>
       <ul>
         <li><strong>Név:</strong> ${name}</li>
         <li><strong>E-mail:</strong> ${email}</li>
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: toEmail,
       replyTo: email,
-      subject: `[EgyPerEgy] Kapcsolat: ${subject}`,
+      subject: `[Direct Supply] Kapcsolat: ${subject}`,
       html,
     });
 

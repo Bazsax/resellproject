@@ -4,7 +4,7 @@ import { XCircle, ArrowRight } from "lucide-react";
 import { GuideBuyButton } from "@/components/GuideBuyButton";
 
 export const metadata = {
-  title: "Fizetés megszakítva | EgyPerEgy",
+  title: "Fizetés megszakítva | Direct Supply",
   description: "A fizetés megszakadt – bármikor újrapróbálhatod.",
 };
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CheckCircle2, Mail, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Sikeres vásárlás | EgyPerEgy",
+  title: "Sikeres vásárlás | Direct Supply",
   description: "Köszönjük! Az útmutató hozzáférését e-mailben küldjük.",
 };
 

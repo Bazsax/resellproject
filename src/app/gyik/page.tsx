@@ -3,7 +3,7 @@ import Link from "next/link";
 import { HelpCircle, ChevronRight, Sparkles, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Gyakori Kérdések (GYIK) | EgyPerEgy",
+  title: "Gyakori Kérdések (GYIK) | Direct Supply",
   description: "Válaszok a leggyakoribb kérdésekre a digitális resell útmutatóról, beszerzési folyamatról, méretcseréről és szállításról."
 };
 

@@ -6,57 +6,61 @@ interface LogoProps {
   size?: "sm" | "md" | "lg";
 }
 
-export const Logo: React.FC<LogoProps> = ({ 
-  className = "", 
+export const Logo: React.FC<LogoProps> = ({
+  className = "",
   variant = "header",
-  size = "md" 
+  size = "md",
 }) => {
   const isFooter = variant === "footer";
-  
+  const accent = isFooter ? "#ccff00" : "#000000";
+  const face = isFooter ? "#ccff00" : "currentColor";
+
   return (
     <div className={`inline-flex items-center gap-2.5 select-none ${className}`}>
-      <div 
+      <div
         className={`relative flex items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105 ${
-          isFooter 
-            ? "bg-black text-[#ccff00] p-2" 
+          isFooter
+            ? "bg-black text-[#ccff00] p-2"
             : "bg-[#ccff00] text-black p-2 shadow-lg shadow-[#ccff00]/25"
         } ${
           size === "sm" ? "w-8 h-8 rounded-lg" : size === "lg" ? "w-12 h-12 rounded-2xl" : "w-9 h-9 sm:w-10 sm:h-10"
         }`}
       >
-        <svg 
-          viewBox="0 0 32 32" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
-        >
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          {/* Left face */}
+          <path d="M5 12L16 7V22L5 27V12Z" fill={face} opacity={isFooter ? 0.55 : 0.45} />
+          {/* Right face */}
+          <path d="M16 7L27 12V27L16 22V7Z" fill={face} opacity={isFooter ? 0.75 : 0.65} />
+          {/* Top face */}
+          <path d="M5 12L16 7L27 12L16 17L5 12Z" fill={face} />
+          {/* Edge highlights */}
           <path
-            d="M5 19.5L14.5 7H24.5L18 16H27L10 27L13.5 19.5H5Z"
-            fill="currentColor"
+            d="M5 12L16 7L27 12M16 7V22M5 12V27L16 22M27 12V27L16 22"
+            stroke={accent}
+            strokeWidth="1.25"
+            strokeLinejoin="round"
+            opacity={isFooter ? 0.35 : 0.25}
           />
-          <circle cx="25" cy="9" r="2" fill={isFooter ? "#ccff00" : "#000000"} />
         </svg>
       </div>
 
       {variant !== "icon-only" && (
         <div className="flex flex-col leading-none text-left">
-          <div className="flex items-center gap-0.5">
-            <span 
-              className={`font-display font-black tracking-tight uppercase ${
-                isFooter ? "text-black" : "text-white"
-              } ${
-                size === "sm" ? "text-base" : size === "lg" ? "text-3xl" : "text-lg sm:text-xl"
-              }`}
-            >
-              Egy<span className={isFooter ? "text-black/80 font-extrabold" : "text-[#ccff00]"}>Per</span>Egy
-            </span>
-          </div>
-          <span 
+          <span
+            className={`font-display font-black tracking-tight uppercase ${
+              isFooter ? "text-black" : "text-white"
+            } ${
+              size === "sm" ? "text-base" : size === "lg" ? "text-3xl" : "text-lg sm:text-xl"
+            }`}
+          >
+            Direct<span className={isFooter ? "text-black/80 font-extrabold" : "text-[#ccff00]"}>Supply</span>
+          </span>
+          <span
             className={`font-nekst text-[8px] sm:text-[9px] tracking-widest uppercase font-semibold mt-0.5 ${
               isFooter ? "text-black/75" : "text-zinc-400"
             }`}
           >
-            rep reselling & sourcing
+            reselling & sourcing
           </span>
         </div>
       )}

@@ -8,11 +8,11 @@ import {
   Flame,
   Star,
   Users,
-  TrendingUp,
   Lock,
 } from "lucide-react";
 import { GuideBuyButton } from "@/components/GuideBuyButton";
 import { PRODUCTS } from "@/data/products";
+import { GUIDE_PRODUCT_SHORT } from "@/lib/brand";
 
 const GUIDE_BULLETS = [
   "Kész, bizonyított rendszerrel indulsz – nem elmélet",
@@ -27,7 +27,7 @@ export const DigitalGuideSpotlight: React.FC = () => {
   const guideProduct = PRODUCTS.find((p) => p.isDigital) || PRODUCTS[1];
 
   return (
-    <section id="digital-guide" className="w-full bg-[#0d0d0f] py-10 sm:py-14 relative overflow-hidden">
+    <section id="digital-guide" className="w-full bg-[#0a0a0c] py-10 sm:py-14 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[450px] h-[450px] bg-[#ccff00]/10 blur-[130px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -47,11 +47,6 @@ export const DigitalGuideSpotlight: React.FC = () => {
                 <Star className="w-3.5 h-3.5 fill-[#ccff00] text-[#ccff00]" />
                 5.0 értékelés
               </span>
-              <span className="hidden sm:inline text-zinc-600">•</span>
-              <span className="flex items-center gap-1">
-                <TrendingUp className="w-3.5 h-3.5 text-[#ccff00]" />
-                Bizonyított módszer
-              </span>
             </div>
           </div>
 
@@ -61,26 +56,25 @@ export const DigitalGuideSpotlight: React.FC = () => {
                 <h2 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-black uppercase text-white tracking-tight font-display leading-[1.05]">
                   AZ ELSŐ MILLIÓ –{" "}
                   <span className="text-[#ccff00] drop-shadow-[0_0_20px_rgba(204,255,0,0.3)]">
-                    REPLICA RESELLING
-                  </span>{" "}
-                  ÚTMUTATÓ
+                    RESELLING STARTERPACK
+                  </span>
                 </h2>
               </div>
 
               <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
-                Pár nap alatt megkeresheted másnak a teljes havi bérét, ha tudod, mit csinálsz. Ez az útmutató megadja neked ezt a lehetőséget. Nem elméletet, hanem egy módszert, ami már bizonyítottan működik.
+                Pár nap alatt megkeresheted másnak a teljes havi bérét, ha tudod, mit csinálsz. Ez a starterpack megadja neked ezt a lehetőséget – nem elméletet, hanem egy módszert, ami már bizonyítottan működik.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 flex-1">
                 {GUIDE_BULLETS.map((text, i) => (
                   <div key={i} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-200">
                     <CheckCircle2 className="w-4 h-4 text-[#ccff00] flex-shrink-0 mt-0.5" />
-                    <span>{text}</span>
+                    <span className="font-normal">{text}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-400 font-medium">
+              <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-400 font-normal">
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="w-4 h-4 text-[#ccff00]" />
                   Biztonságos Stripe fizetés
@@ -100,7 +94,7 @@ export const DigitalGuideSpotlight: React.FC = () => {
                 <div className="relative w-full h-full min-h-[120px] rounded-xl overflow-hidden">
                   <Image
                     src={guideProduct.images[0]}
-                    alt="Az Első Millió Resell Útmutató borító"
+                    alt={`${GUIDE_PRODUCT_SHORT} borító`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -110,7 +104,7 @@ export const DigitalGuideSpotlight: React.FC = () => {
                       DIGITÁLIS CSOMAG
                     </span>
                     <h3 className="text-sm font-black text-white uppercase font-display leading-tight">
-                      AZ ELSŐ MILLIÓ 2026
+                      DIRECT SUPPLY
                     </h3>
                   </div>
                 </div>
@@ -144,11 +138,11 @@ export const DigitalGuideSpotlight: React.FC = () => {
               </div>
 
               <div className="shrink-0 flex flex-col gap-2">
-                <GuideBuyButton label="MEGVÁSÁROLOM ÉS HOZZÁFÉREK" size="lg" />
+                <GuideBuyButton size="lg" />
 
                 <Link
                   href="/utmutato"
-                  className="w-full py-3.5 px-5 rounded-xl font-black text-xs uppercase tracking-wider bg-zinc-900 border border-zinc-700 text-white hover:border-[#ccff00] hover:text-[#ccff00] transition flex items-center justify-center gap-1.5"
+                  className="w-full py-3.5 px-5 rounded-xl font-black text-xs uppercase tracking-wider bg-zinc-900 border border-zinc-700 text-white hover:border-[#ccff00] transition flex items-center justify-center gap-1.5"
                 >
                   <span>Részletek</span>
                   <ArrowRight className="w-3.5 h-3.5" />

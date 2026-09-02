@@ -10,7 +10,7 @@ export function getStripe() {
 
 /** Display price in forints. */
 export const GUIDE_PRICE_HUF = 1000;
-export const GUIDE_NAME = "Az Első Millió – Replica Reselling Útmutató";
+export const GUIDE_NAME = "Az Első Millió – Reselling Starterpack";
 
 /**
  * Stripe amount for Checkout.

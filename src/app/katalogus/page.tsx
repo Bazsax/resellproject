@@ -18,7 +18,7 @@ import {
   Package,
   Store,
 } from "lucide-react";
-import { PRODUCTS, CATEGORIES, Product } from "@/data/products";
+import { PRODUCTS, CATEGORIES, CATALOG_PRODUCTS, Product } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
 
 const CATEGORY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -48,12 +48,12 @@ function CatalogContent() {
   // Extract all unique brands
   const brands = useMemo(() => {
     const set = new Set<string>();
-    PRODUCTS.forEach((p) => set.add(p.brand));
+    CATALOG_PRODUCTS.forEach((p) => set.add(p.brand));
     return Array.from(set);
   }, []);
 
   const filteredProducts = useMemo(() => {
-    return PRODUCTS.filter((p) => {
+    return CATALOG_PRODUCTS.filter((p) => {
       // Category filter
       if (selectedCategory !== "all" && p.category !== selectedCategory) {
         return false;

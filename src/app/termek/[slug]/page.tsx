@@ -168,7 +168,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                     className={`py-2.5 px-2 rounded-lg text-sm font-medium transition-all flex items-center justify-center border font-nekst normal-case ${
                       isSelected
                         ? "bg-[#ccff00] text-black border-[#ccff00] shadow-md shadow-[#ccff00]/20 scale-105 font-semibold"
-                        : "bg-[#141416] text-white border-zinc-800 hover:border-[#ccff00]/60 hover:text-[#ccff00]"
+                        : "bg-[#141416] text-white border-zinc-800 hover:border-[#ccff00]/60"
                     }`}
                   >
                     {size}

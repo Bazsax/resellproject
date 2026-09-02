@@ -79,25 +79,25 @@ const sora = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "EgyPerEgy | 1/1 Prémium Cipő, Ruha Beszerzés & Resell Útmutató 2026",
-  description: "A legmagasabb minőségű 1/1 prémium sneakerek, streetwear ruházat, órák és táskák beszerzési közvetítése. Digitális Resell Masterclass 2026 kézikönyv és gyári beszállítói kontaktok azonnali letöltéssel.",
+  title: "Direct Supply | Digitális Resell Termékek & Egyedi Beszerzés",
+  description: "Útmutatók, beszállítói listák és resell starterpackok azonnali letöltéssel. Egyedi 1/1 prémium termék beszerzés a legjobb áron – directsupply.hu",
   keywords: [
     "resell útmutató",
-    "sneaker beszerzés",
-    "1/1 replika",
-    "supreme dunk",
-    "jordan 4 military black",
-    "trapstar puffer",
-    "gumroad resell guide",
+    "reselling starterpack",
+    "digitális beszállítói lista",
+    "direct supply",
+    "egyedi beszerzés",
     "cipő viszonteladás",
-    "egyperegy"
+    "directsupply.hu"
   ],
-  authors: [{ name: "EgyPerEgy" }],
+  authors: [{ name: "Direct Supply" }],
+  metadataBase: new URL("https://directsupply.hu"),
   openGraph: {
-    title: "EgyPerEgy | 1/1 Prémium Cipő & Resell Útmutató",
-    description: "Prémium minőségű beszerzés és hivatalos digitális viszonteladási útmutató gyári kontaktokkal.",
+    title: "Direct Supply | Digitális Resell & Beszerzés",
+    description: "Digitális resell termékek és prémium egyedi beszerzés – directsupply.hu",
     type: "website",
     locale: "hu_HU",
+    url: "https://directsupply.hu",
   }
 };
 

@@ -54,7 +54,7 @@ export async function POST(request: Request) {
         : "<p><em>Nincs feltöltött kép.</em></p>";
 
     const html = `
-      <h2>Új egyedi beszerzési igény – EgyPerEgy</h2>
+      <h2>Új egyedi beszerzési igény – Direct Supply</h2>
       <h3>Termék adatok</h3>
       <ul>
         <li><strong>Kategória:</strong> ${categoryLabel}</li>
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: toEmail,
       replyTo: email,
-      subject: `[EgyPerEgy] Beszerzési igény: ${itemName}`,
+      subject: `[Direct Supply] Beszerzési igény: ${itemName}`,
       html,
     });
 

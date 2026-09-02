@@ -3,177 +3,90 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { InstagramIcon, TikTokIcon, TelegramIcon } from "@/components/SocialIcons";
 import { Logo } from "@/components/Logo";
+import { BRAND_DOMAIN } from "@/lib/brand";
 
 export const Footer: React.FC = () => {
   return (
     <footer className="w-full bg-[#ccff00] text-black font-sans">
-      {/* Top Main Columns Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-xs">
-          {/* Col 1: 1/1 Replikák */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-xs">
           <div>
             <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
-              1/1 REPLIKÁK
+              Digitális kínálat
             </h4>
             <ul className="space-y-2 font-medium">
               <li>
-                <Link href="/katalogus?marka=Jordan" className="hover:underline opacity-90 hover:opacity-100">
-                  Jordan
+                <Link href="/katalogus?kat=digital" className="hover:underline opacity-90 hover:opacity-100">
+                  Útmutatók
                 </Link>
               </li>
               <li>
-                <Link href="/katalogus?marka=Nike" className="hover:underline opacity-90 hover:opacity-100">
-                  Nike
+                <Link href="/katalogus?kat=suppliers" className="hover:underline opacity-90 hover:opacity-100">
+                  Beszállítók
                 </Link>
               </li>
-              <li>
-                <Link href="/katalogus?marka=NewBalance" className="hover:underline opacity-90 hover:opacity-100">
-                  New Balance
-                </Link>
-              </li>
-              <li>
-                <Link href="/katalogus?marka=Yeezy" className="hover:underline opacity-90 hover:opacity-100">
-                  Yeezy
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 2: Budget Replikák */}
-          <div>
-            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
-              BUDGET REPLIKÁK
-            </h4>
-            <ul className="space-y-2 font-medium">
-              <li>
-                <Link href="/katalogus?marka=Jordan" className="hover:underline opacity-90 hover:opacity-100">
-                  Jordan
-                </Link>
-              </li>
-              <li>
-                <Link href="/katalogus?marka=Nike" className="hover:underline opacity-90 hover:opacity-100">
-                  Nike
-                </Link>
-              </li>
-              <li>
-                <Link href="/katalogus?marka=NewBalance" className="hover:underline opacity-90 hover:opacity-100">
-                  New Balance
-                </Link>
-              </li>
-              <li>
-                <Link href="/katalogus?marka=Yeezy" className="hover:underline opacity-90 hover:opacity-100">
-                  Yeezy
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Streetwear */}
-          <div>
-            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
-              STREETWEAR
-            </h4>
-            <ul className="space-y-2 font-medium">
-              <li>
-                <Link href="/katalogus?kat=streetwear" className="hover:underline opacity-90 hover:opacity-100">
-                  FOG
-                </Link>
-              </li>
-              <li>
-                <Link href="/katalogus?kat=streetwear" className="hover:underline opacity-90 hover:opacity-100">
-                  Essentials
-                </Link>
-              </li>
-              <li>
-                <Link href="/katalogus?kat=streetwear" className="hover:underline opacity-90 hover:opacity-100">
-                  Sp5der
-                </Link>
-              </li>
-              <li>
-                <Link href="/katalogus?kat=streetwear" className="hover:underline opacity-90 hover:opacity-100">
-                  Vlone
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 4: Digitális & Útmutatók */}
-          <div>
-            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3 flex items-center gap-1">
-              DIGITÁLIS FÁJLOK <span className="text-[10px] bg-black text-[#ccff00] px-1.5 py-0.5 rounded font-black font-btn">STRIPE</span>
-            </h4>
-            <ul className="space-y-2 font-medium">
               <li>
                 <Link href="/utmutato" className="hover:underline opacity-90 hover:opacity-100 font-bold">
-                  Resell Masterclass 2026
+                  Reselling Starterpack
                 </Link>
               </li>
               <li>
-                <Link href="/utmutato#beszallitok" className="hover:underline opacity-90 hover:opacity-100">
-                  Beszállítói Kontaktok
-                </Link>
-              </li>
-              <li>
-                <Link href="/utmutato#vamolas" className="hover:underline opacity-90 hover:opacity-100">
-                  Vámolási Kisokos
-                </Link>
-              </li>
-              <li>
-                <Link href="/utmutato#vinted" className="hover:underline opacity-90 hover:opacity-100">
-                  Vinted & Instagram Stratégia
+                <Link href="/katalogus" className="hover:underline opacity-90 hover:opacity-100">
+                  Teljes katalógus
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 5: Kapcsolat */}
           <div>
             <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
-              KAPCSOLAT
+              Beszerzés
+            </h4>
+            <ul className="space-y-2 font-medium">
+              <li>
+                <Link href="/egyedi-beszerzes" className="hover:underline opacity-90 hover:opacity-100 font-bold">
+                  Egyedi beszerzés
+                </Link>
+              </li>
+              <li>
+                <Link href="/merettablazat" className="hover:underline opacity-90 hover:opacity-100">
+                  Mérettáblázat
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
+              Kapcsolat
             </h4>
             <ul className="space-y-2 font-medium">
               <li>
                 <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:underline opacity-90 hover:opacity-100 flex items-center gap-1">
-                  IG: @resellbolt <ArrowUpRight className="w-3 h-3" />
+                  Instagram <ArrowUpRight className="w-3 h-3" />
                 </a>
               </li>
               <li>
-                <a href="mailto:info@resellbolt.hu" className="hover:underline opacity-90 hover:opacity-100">
-                  Email: info@resellbolt.hu
+                <a href={`mailto:info@${BRAND_DOMAIN}`} className="hover:underline opacity-90 hover:opacity-100">
+                  info@{BRAND_DOMAIN}
                 </a>
               </li>
               <li>
-                <Link href="/merettablazat" className="hover:underline opacity-90 hover:opacity-100">
-                  Méretcsere & Garancia
-                </Link>
-              </li>
-              <li>
-                <Link href="/egyedi-beszerzes" className="hover:underline opacity-90 hover:opacity-100 font-bold">
-                  Egyedi Beszerzés Kérése
+                <Link href="/kapcsolat" className="hover:underline opacity-90 hover:opacity-100">
+                  Kapcsolatfelvétel
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 6: Dokumentumok */}
           <div>
             <h4 className="font-display font-black text-sm uppercase tracking-wider mb-3">
-              DOKUMENTUMOK
+              Dokumentumok
             </h4>
             <ul className="space-y-2 font-medium">
               <li>
                 <Link href="/gyik" className="hover:underline opacity-90 hover:opacity-100">
                   GYIK
-                </Link>
-              </li>
-              <li>
-                <Link href="/gyik#visszakuldes" className="hover:underline opacity-90 hover:opacity-100">
-                  Visszaküldés
-                </Link>
-              </li>
-              <li>
-                <Link href="/merettablazat" className="hover:underline opacity-90 hover:opacity-100">
-                  Méretcsere
                 </Link>
               </li>
               <li>
@@ -183,14 +96,13 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/adatkezeles" className="hover:underline opacity-90 hover:opacity-100">
-                  Adatkezelési Tájékoztató
+                  Adatkezelési tájékoztató
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Brand & Socials Section with generated Logo */}
         <div className="mt-10 pt-8 border-t border-black/15 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Logo variant="footer" size="md" />
@@ -226,15 +138,14 @@ export const Footer: React.FC = () => {
           </div>
 
           <p className="text-xs font-semibold opacity-90 text-center sm:text-right font-sans">
-            Prémium minőségű beszerzési közvetítés & Digitális resell oktatóanyagok.
+            Digitális resell termékek & prémium egyedi beszerzés – {BRAND_DOMAIN}
           </p>
         </div>
       </div>
 
-      {/* Bottom Sub-footer */}
       <div className="bg-black text-zinc-400 text-[11px] py-4 px-4 border-t border-zinc-800">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center">
-          <p className="font-sans">© 2026. EgyPerEgy. Minden jog fenntartva.</p>
+          <p className="font-sans">© 2026 Direct Supply. Minden jog fenntartva.</p>
           <div className="flex items-center gap-2 font-medium font-sans">
             <span>A weboldalt készítette:</span>
             <a
@@ -245,8 +156,6 @@ export const Footer: React.FC = () => {
             >
               Pixelplaza.hu
             </a>
-            <span className="text-zinc-600">|</span>
-            <span className="text-zinc-300">Vercel Ready 🚀</span>
           </div>
         </div>
       </div>

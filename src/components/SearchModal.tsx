@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Search, X, ArrowRight, Sparkles } from "lucide-react";
-import { PRODUCTS, Product } from "@/data/products";
+import { CATALOG_PRODUCTS, Product } from "@/data/products";
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -17,10 +17,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
 
   useEffect(() => {
     if (!query.trim()) {
-      setResults(PRODUCTS.slice(0, 4));
+      setResults(CATALOG_PRODUCTS.slice(0, 4));
     } else {
       const q = query.toLowerCase();
-      const filtered = PRODUCTS.filter(
+      const filtered = CATALOG_PRODUCTS.filter(
         (p) =>
           p.name.toLowerCase().includes(q) ||
           p.brand.toLowerCase().includes(q) ||
@@ -124,14 +124,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
                       </span>
                     )}
                   </div>
-                  <h4 className="text-sm font-semibold text-white truncate mt-0.5 group-hover:text-[#ccff00] transition">
+                  <h4 className="text-sm font-semibold text-white truncate mt-0.5 transition">
                     {product.name}
                   </h4>
                   <p className="text-xs font-bold text-[#ccff00]">
                     {product.price.toLocaleString("hu-HU")} Ft
                   </p>
                 </div>
-                <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-[#ccff00] group-hover:translate-x-1 transition" />
+                <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:translate-x-1 transition" />
               </Link>
             ))
           )}
@@ -139,7 +139,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
 
         {/* Footer info */}
         <div className="p-3 bg-zinc-900/60 border-t border-[#27272a] flex items-center justify-between text-xs text-zinc-400">
-          <span>Összesen {PRODUCTS.length} termék és útmutató elérhető</span>
+          <span>Összesen {CATALOG_PRODUCTS.length} digitális termék elérhető</span>
           <Link
             href="/katalogus"
             onClick={onClose}

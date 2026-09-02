@@ -73,7 +73,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-sm font-black uppercase text-white">Instagram Ügyfélszolgálat</h3>
-                  <p className="text-xs text-[#ccff00] font-bold">@resellbolt</p>
+                  <p className="text-xs text-[#ccff00] font-bold">@directsupply</p>
                 </div>
               </div>
               <p className="text-xs text-zinc-400">
@@ -88,7 +88,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-sm font-black uppercase text-white">E-mail Elérhetőség</h3>
-                  <p className="text-xs text-zinc-300 font-medium">info@resellbolt.hu</p>
+                  <p className="text-xs text-zinc-300 font-medium">info@directsupply.hu</p>
                 </div>
               </div>
               <p className="text-xs text-zinc-400">

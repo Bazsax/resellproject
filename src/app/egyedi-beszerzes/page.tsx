@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { SourcingExamplesSection } from "@/components/SourcingExamplesSection";
 import { 
   Send, 
   CheckCircle2, 
@@ -45,7 +46,7 @@ async function uploadToCloudinary(file: File): Promise<string> {
   const data = new FormData();
   data.append("file", file);
   data.append("upload_preset", uploadPreset);
-  data.append("folder", "egyperegy-sourcing");
+  data.append("folder", "directsupply-sourcing");
 
   const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
     method: "POST",
@@ -148,13 +149,13 @@ export default function CustomSourcingPage() {
           <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white font-display">
             EGYEDI TERMÉK BESZERZÉSE
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto font-normal">
             Nem találod a katalógusban a keresett terméket? Add meg a részleteket, tölts fel képeket, és beszerezzük a legjobb 1/1 gyári minőségben a legkedvezőbb áron!
           </p>
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-10">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-8">
         {isSubmitted ? (
           <div className="p-8 sm:p-12 rounded-3xl bg-[#121214] border border-[#ccff00]/40 text-center space-y-6 shadow-2xl">
             <div className="w-20 h-20 rounded-full bg-[#ccff00]/10 border-2 border-[#ccff00] text-[#ccff00] flex items-center justify-center mx-auto animate-bounce">
@@ -167,11 +168,11 @@ export default function CustomSourcingPage() {
               Köszönjük! Munkatársunk <span className="text-[#ccff00] font-bold">24 órán belül</span> felveszi veled a kapcsolatot a megadott Instagram vagy telefon elérhetőségen az árajánlattal és a gyári QC fotókkal.
             </p>
             <div className="pt-4 flex justify-center gap-4">
-              <Link
-                href="/katalogus"
+                <Link
+                href="/egyedi-beszerzes#pelda"
                 className="px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition"
               >
-                Vissza a Katalógushoz
+                Példák megtekintése
               </Link>
             </div>
           </div>
@@ -438,6 +439,8 @@ export default function CustomSourcingPage() {
           </form>
         )}
       </div>
+
+      <SourcingExamplesSection showCta={false} id="pelda" />
     </div>
   );
 }

@@ -1,34 +1,25 @@
 import React from "react";
 import { HeroBanner } from "@/components/HeroBanner";
+import { BrandIntroSection } from "@/components/BrandIntroSection";
+import { HomeDigitalCatalog } from "@/components/HomeDigitalCatalog";
 import { ValuePillars } from "@/components/ValuePillars";
 import { DigitalGuideSpotlight } from "@/components/DigitalGuideSpotlight";
-import { CategoryShowcase } from "@/components/CategoryShowcase";
-import { ReplicaGrid } from "@/components/ReplicaGrid";
+import { SourcingZoneDivider } from "@/components/SourcingZoneDivider";
+import { SourcingExamplesSection } from "@/components/SourcingExamplesSection";
 import { SourcingSteps } from "@/components/SourcingSteps";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-black">
-      {/* 1. Hero Banner (Reopening Sale) */}
+    <div className="flex flex-col min-h-screen bg-[#0a0a0c]">
       <HeroBanner />
-
-      {/* 2. Category Blocks (Jordan, Nike with yellow banners) */}
-      <CategoryShowcase />
-
-      {/* 3. Value Pillars (3 capsules) */}
+      <BrandIntroSection />
+      <HomeDigitalCatalog />
       <ValuePillars />
-
-      {/* 4. 1/1 Replikák Grid */}
-      <ReplicaGrid />
-
-      {/* 5. Primary Digital Resell Guide (Gumroad) */}
       <DigitalGuideSpotlight />
-
-      {/* 6. How Sourcing Works */}
+      <SourcingZoneDivider />
       <SourcingSteps />
-
-      {/* 7. Reviews Section (Google style) */}
+      <SourcingExamplesSection />
       <ReviewsSection />
     </div>
   );

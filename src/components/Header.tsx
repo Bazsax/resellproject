@@ -13,7 +13,6 @@ import {
   Sparkles, 
   Send,
   ArrowRight,
-  ShieldCheck,
   ChevronRight
 } from "lucide-react";
 import { InstagramIcon } from "@/components/SocialIcons";
@@ -45,9 +44,9 @@ export const Header: React.FC = () => {
         {bannerVisible && (
           <div className="bg-[#ccff00] text-black py-1.5 px-3 text-center text-xs font-black tracking-wider uppercase flex items-center justify-center relative overflow-hidden font-btn">
             <div className="flex items-center gap-2 truncate">
-              <span className="inline-block animate-pulse">⚡</span>
-              <span className="font-extrabold">ÚJ RESELL DOKUMENTÁCIÓ 2026</span>
-              <span className="hidden sm:inline opacity-80 font-sans normal-case">— Bizonyított módszer, több millió profit · azonnali letöltés</span>
+              <span className="inline-block animate-pulse">📦</span>
+              <span className="font-extrabold">RESELLING STARTERPACK</span>
+              <span className="hidden sm:inline opacity-80 font-sans normal-case">— Direct Supply digitális kínálat · azonnali letöltés</span>
               <Link
                 href="/utmutato"
                 className="ml-2 underline font-black text-black hover:opacity-75 inline-flex items-center"
@@ -168,17 +167,17 @@ export const Header: React.FC = () => {
             <Link
               href="/egyedi-beszerzes"
               onClick={() => setMobileMenuOpen(false)}
-              className="my-3 p-3.5 rounded-xl bg-zinc-900/90 border border-[#ccff00]/30 relative overflow-hidden flex items-center justify-between gap-3 hover:border-[#ccff00]/60 transition group"
+              className="my-3 p-3.5 rounded-xl bg-zinc-900/90 border border-[#ccff00]/30 relative overflow-hidden flex items-center justify-between gap-3 hover:border-[#ccff00] hover:shadow-[0_0_20px_rgba(204,255,0,0.15)] transition group"
             >
               <div className="flex-1 min-w-0">
-                <div className="text-[10px] font-black uppercase tracking-wider text-[#ccff00] flex items-center gap-1.5 font-btn">
-                  <ShieldCheck className="w-4 h-4 flex-shrink-0" /> 1/1 Sourcing
+                <div className="text-xs font-black uppercase tracking-wider text-[#ccff00] flex items-center gap-1.5 font-btn">
+                  <ShoppingBag className="w-4 h-4 flex-shrink-0" /> Egyedi beszerzés
                 </div>
-                <p className="text-xs text-white font-medium mt-1 font-sans leading-snug group-hover:text-[#ccff00] transition">
-                  Kérj egyedi ruhát vagy cipőt a legjobb beszállítóktól!
+                <p className="text-xs text-white font-normal mt-1 font-sans leading-snug">
+                  Egyedi kérésre bármilyen terméket beszerzünk neked a legjobb áron, a legjobb minőségben
                 </p>
               </div>
-              <ChevronRight className="w-5 h-5 text-zinc-500 group-hover:text-[#ccff00] flex-shrink-0 transition" />
+              <ChevronRight className="w-5 h-5 text-zinc-500 flex-shrink-0 transition" />
             </Link>
 
             {/* Mobile Nav Links */}
@@ -209,40 +208,6 @@ export const Header: React.FC = () => {
                 </Link>
               );
               })}
-
-              <div className="pt-4 mt-4 border-t border-[#27272a]">
-                <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest px-3 mb-2 font-display">
-                  KATEGÓRIÁK
-                </p>
-                <Link
-                  href="/katalogus?kat=sneakers"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-xs font-medium text-zinc-300 hover:text-[#ccff00] font-sans"
-                >
-                  👟 Sneakerek (Jordan, Nike, Travis)
-                </Link>
-                <Link
-                  href="/katalogus?kat=streetwear"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-xs font-medium text-zinc-300 hover:text-[#ccff00] font-sans"
-                >
-                  👕 Streetwear (Trapstar, Sp5der)
-                </Link>
-                <Link
-                  href="/katalogus?kat=watches"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-xs font-medium text-zinc-300 hover:text-[#ccff00] font-sans"
-                >
-                  ⌚ Prémium Órák (Super Clone)
-                </Link>
-                <Link
-                  href="/katalogus?kat=bags"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-xs font-medium text-zinc-300 hover:text-[#ccff00] font-sans"
-                >
-                  👜 Táskák & Kiegészítők
-                </Link>
-              </div>
             </div>
 
             {/* Social & Contact */}
@@ -275,7 +240,7 @@ export const Header: React.FC = () => {
                 </a>
               </div>
               <p className="text-[8px] text-center text-zinc-500 font-medium font-sans pb-0">
-                © 2026 EgyPerEgy
+                © 2026 Direct Supply
               </p>
             </div>
           </div>

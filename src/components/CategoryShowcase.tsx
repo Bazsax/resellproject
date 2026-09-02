@@ -41,7 +41,7 @@ export const CategoryShowcase: React.FC = () => {
             </h2>
             <Link
               href="/katalogus?marka=Jordan"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 hover:border-[#ccff00] text-xs font-black uppercase text-white hover:text-[#ccff00] transition"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 hover:border-[#ccff00] text-xs font-black uppercase text-white transition"
             >
               <span>ÖSSZES</span>
               <div className="w-4 h-4 rounded-full bg-[#ccff00] text-black flex items-center justify-center">
@@ -85,7 +85,7 @@ export const CategoryShowcase: React.FC = () => {
             </h2>
             <Link
               href="/katalogus?marka=Nike"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 hover:border-[#ccff00] text-xs font-black uppercase text-white hover:text-[#ccff00] transition"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 hover:border-[#ccff00] text-xs font-black uppercase text-white transition"
             >
               <span>ÖSSZES</span>
               <div className="w-4 h-4 rounded-full bg-[#ccff00] text-black flex items-center justify-center">

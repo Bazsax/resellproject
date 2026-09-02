@@ -4,6 +4,7 @@ import { BrandIntroSection } from "@/components/BrandIntroSection";
 import { HomeDigitalCatalog } from "@/components/HomeDigitalCatalog";
 import { ValuePillars } from "@/components/ValuePillars";
 import { DigitalGuideSpotlight } from "@/components/DigitalGuideSpotlight";
+import { SuccessStoriesSection } from "@/components/SuccessStoriesSection";
 import { SourcingZoneDivider } from "@/components/SourcingZoneDivider";
 import { SourcingExamplesSection } from "@/components/SourcingExamplesSection";
 import { SourcingSteps } from "@/components/SourcingSteps";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <HomeDigitalCatalog />
       <ValuePillars />
       <DigitalGuideSpotlight />
+      <SuccessStoriesSection />
       <SourcingZoneDivider />
       <SourcingSteps />
       <SourcingExamplesSection />

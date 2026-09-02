@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { getStripe, GUIDE_STRIPE_AMOUNT, GUIDE_NAME } from "@/lib/stripe";
+import { getStripe, getCheckoutProduct, type CheckoutProductKey } from "@/lib/stripe";
 
-export async function POST() {
+export async function POST(request: Request) {
   try {
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
     if (!siteUrl) {
@@ -18,6 +18,15 @@ export async function POST() {
       );
     }
 
+    let productKey: CheckoutProductKey = "guide";
+    try {
+      const body = await request.json();
+      if (body?.product === "masterclass") productKey = "masterclass";
+    } catch {
+      // empty body → default guide
+    }
+
+    const product = getCheckoutProduct(productKey);
     const stripe = getStripe();
 
     const session = await stripe.checkout.sessions.create({
@@ -27,11 +36,10 @@ export async function POST() {
           quantity: 1,
           price_data: {
             currency: "huf",
-            unit_amount: GUIDE_STRIPE_AMOUNT,
+            unit_amount: product.amount,
             product_data: {
-              name: GUIDE_NAME,
-              description:
-                "Digitális útmutató – azonnali hozzáférés e-mailben a sikeres fizetés után.",
+              name: product.name,
+              description: product.description,
             },
           },
         },
@@ -41,7 +49,7 @@ export async function POST() {
       billing_address_collection: "auto",
       allow_promotion_codes: true,
       metadata: {
-        product: "guide",
+        product: product.key,
       },
     });
 

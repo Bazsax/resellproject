@@ -4,12 +4,18 @@ import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { GUIDE_FAQ } from "@/data/guide";
 
-export function GuideFaqAccordion() {
+type FaqItem = { q: string; a: string };
+
+type GuideFaqAccordionProps = {
+  items?: FaqItem[];
+};
+
+export function GuideFaqAccordion({ items = GUIDE_FAQ }: GuideFaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div className="space-y-3">
-      {GUIDE_FAQ.map((faq, i) => {
+      {items.map((faq, i) => {
         const isOpen = openIndex === i;
         return (
           <button
@@ -29,7 +35,9 @@ export function GuideFaqAccordion() {
               />
             </div>
             {isOpen && (
-              <p className="text-xs text-zinc-400 mt-3 leading-relaxed">{faq.a}</p>
+              <p className="text-xs text-zinc-400 mt-3 leading-relaxed font-normal normal-case">
+                {faq.a}
+              </p>
             )}
           </button>
         );

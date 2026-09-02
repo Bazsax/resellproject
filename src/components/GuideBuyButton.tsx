@@ -7,6 +7,7 @@ type GuideBuyButtonProps = {
   className?: string;
   label?: string;
   size?: "default" | "lg";
+  product?: "guide" | "masterclass";
 };
 
 const SIZE_CLASSES = {
@@ -18,6 +19,7 @@ export function GuideBuyButton({
   className = "",
   label = "VÁSÁRLÁS",
   size = "default",
+  product = "guide",
 }: GuideBuyButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -51,7 +53,11 @@ export function GuideBuyButton({
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/checkout", { method: "POST" });
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ product }),
+      });
       let data: { error?: string; url?: string } = {};
       try {
         data = await res.json();

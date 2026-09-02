@@ -27,6 +27,8 @@ export interface Product {
   defaultSize?: string | number;
   inStock: boolean;
   gumroadUrl?: string;
+  /** Landing page for digital products */
+  href?: string;
   shortDescription: string;
   fullDescription: string;
   features: string[];
@@ -100,17 +102,18 @@ export const PRODUCTS: Product[] = [
     name: "AZ ELSŐ MILLIÓ – RESELLING STARTERPACK",
     brand: "Direct Supply",
     category: "digital",
-    subCategory: "E-book & Útmutató",
+    subCategory: "Útmutató",
     price: 1000,
     originalPrice: 10000,
     isDigital: true,
     isFeatured: true,
-    badge: "Bestseller Digitális",
+    badge: "Bestseller",
     rating: 5.0,
     reviewCount: 128,
-    sku: "DIGI-RES-2026",
-    tags: ["Digitális Fájl", "Beszállítók", "Masterclass", "Azonnali Letöltés"],
+    sku: "DIGI-STARTER-2026",
+    tags: ["Digitális Fájl", "Beszállítók", "Starterpack", "Azonnali Letöltés"],
     gumroadUrl: "https://gumroad.com",
+    href: "/utmutato",
     inStock: true,
     images: [
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80",
@@ -126,6 +129,40 @@ export const PRODUCTS: Product[] = [
       "Automata rendelés- és ügyfélkezelési Excel/Notion sablonok",
       "Azonnali hozzáférés e-mailben a sikeres Stripe fizetés után",
       "Örökös frissítések a dokumentációhoz"
+    ],
+    sourcingTime: "Azonnali hozzáférés e-mailben"
+  },
+  {
+    id: "reselling-masterclass-100m",
+    slug: "reselling-masterclass",
+    name: "100 FILLÉRBŐL 100 MILLIÓ – RESELLING MASTERCLASS",
+    brand: "Direct Supply",
+    category: "digital",
+    subCategory: "Masterclass",
+    price: 49990,
+    originalPrice: 199990,
+    isDigital: true,
+    isFeatured: true,
+    badge: "Teljes birodalom",
+    rating: 5.0,
+    reviewCount: 47,
+    sku: "DIGI-MASTER-2026",
+    tags: ["Masterclass", "Beszállítói listák", "Teljes csomag", "Digitális"],
+    href: "/masterclass",
+    inStock: true,
+    images: [
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80"
+    ],
+    shortDescription: "A legteljesebb Direct Supply csomag: összes beszállítói lista, útmutatók, források és a birodalom-építő masterclass egyben – 100 fillértől a 100 millióig.",
+    fullDescription: "A Reselling Masterclass nem egy útmutató – hanem a teljes rendszer. Tartalmazza a kategóriánkénti beszállítói listákat, az összes guide-ot, a tool- és forráslistákat, valamint a lépésről lépésre masterclass anyagot, amivel skálázható resell birodalmat építesz.",
+    features: [
+      "Összes beszállítói lista: ruhák, cipők, táskák, órák, kiegészítők, elektronikák",
+      "Teljes útmutató-gyűjtemény + források és tool listák",
+      "Birodalom-építő masterclass: skálázás, csapat, automatizálás",
+      "Azonnali hozzáférés e-mailben a sikeres Stripe fizetés után",
+      "Örökös frissítések az összes modulhoz"
     ],
     sourcingTime: "Azonnali hozzáférés e-mailben"
   },

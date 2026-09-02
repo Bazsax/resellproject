@@ -18,3 +18,28 @@ export const GUIDE_NAME = "Az Első Millió – Reselling Starterpack";
  * so 1 000 Ft → unit_amount 100000.
  */
 export const GUIDE_STRIPE_AMOUNT = GUIDE_PRICE_HUF * 100;
+
+export const MASTERCLASS_PRICE_HUF = 49990;
+export const MASTERCLASS_NAME = "100 fillérből 100 Millió – Reselling Masterclass";
+export const MASTERCLASS_STRIPE_AMOUNT = MASTERCLASS_PRICE_HUF * 100;
+
+export type CheckoutProductKey = "guide" | "masterclass";
+
+export function getCheckoutProduct(key: CheckoutProductKey) {
+  if (key === "masterclass") {
+    return {
+      key: "masterclass" as const,
+      name: MASTERCLASS_NAME,
+      amount: MASTERCLASS_STRIPE_AMOUNT,
+      description:
+        "Teljes reselling masterclass – beszállítói listák, útmutatók és birodalom-építő rendszer. Azonnali hozzáférés e-mailben.",
+    };
+  }
+  return {
+    key: "guide" as const,
+    name: GUIDE_NAME,
+    amount: GUIDE_STRIPE_AMOUNT,
+    description:
+      "Digitális útmutató – azonnali hozzáférés e-mailben a sikeres fizetés után.",
+  };
+}

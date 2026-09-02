@@ -90,7 +90,7 @@ function CatalogContent() {
     <div className="min-h-screen bg-black text-white pb-20">
       {/* Catalog Header */}
       <div className="bg-[#121214] border-b border-[#27272a] py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center sm:text-left">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ccff00]/10 border border-[#ccff00]/40 text-xs font-black uppercase tracking-wider text-[#ccff00]">
             <Sparkles className="w-3.5 h-3.5" /> 1/1 Sourcing & Digitális Kínálat
           </div>

@@ -22,12 +22,12 @@ import {
 } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import {
-  GUIDE_PROOF_IMAGES,
   GUIDE_REVIEWS,
   GUIDE_STEPS,
 } from "@/data/guide";
 import { GuideBuyButton } from "@/components/GuideBuyButton";
 import { GuideFaqAccordion } from "@/components/GuideFaqAccordion";
+import { SuccessStoriesSection } from "@/components/SuccessStoriesSection";
 
 export const metadata = {
   title: "Az Első Millió – Reselling Starterpack | Direct Supply",
@@ -328,40 +328,7 @@ export default function GuidePage() {
         </div>
       </section>
 
-      {/* Proof Gallery – single row */}
-      <section id="bizonyitekok" className="py-9 sm:py-12">
-        <div className={SECTION}>
-          <SectionHeader
-            label="Valós eredmények"
-            title="Bizonyíték, hogy működik"
-            description="Valós eladások és bevételek az útmutató követőitől."
-          />
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {GUIDE_PROOF_IMAGES.map((img) => (
-              <div
-                key={img.id}
-                className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#ccff00]/50 transition bg-zinc-900"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.caption}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                {img.platform && (
-                  <span className="absolute top-2 left-2 text-[8px] font-black uppercase px-1.5 py-0.5 rounded bg-[#ccff00] text-black">
-                    {img.platform}
-                  </span>
-                )}
-                <p className="absolute bottom-2 left-2 right-2 text-[9px] sm:text-[10px] font-bold text-white leading-tight">
-                  {img.caption}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SuccessStoriesSection variant="page" id="siker-sztorik" />
 
       {/* Reviews */}
       <section className="py-9 sm:py-12">
@@ -472,6 +439,38 @@ export default function GuidePage() {
         <div className={SECTION}>
           <SectionHeader label="GYIK" title="Gyakori kérdések" />
           <GuideFaqAccordion />
+        </div>
+      </section>
+
+      {/* Upsell to Masterclass */}
+      <section className="py-9 sm:py-12">
+        <div className={SECTION}>
+          <div className="rounded-3xl bg-[#121214] border border-[#ccff00]/30 p-6 sm:p-10 space-y-5 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-[#ccff00]/10 blur-[70px] rounded-full pointer-events-none" />
+            <div className="relative z-10 space-y-4 max-w-3xl">
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-[#ccff00]">
+                <Sparkles className="w-3.5 h-3.5" /> Következő szint
+              </span>
+              <h2 className="text-xl sm:text-3xl font-black uppercase text-white font-display leading-tight">
+                Kész vagy a teljes birodalomra?
+              </h2>
+              <p className="text-sm text-zinc-400 font-normal leading-relaxed">
+                A Starterpack az indulás. A{" "}
+                <span className="text-white font-semibold">
+                  100 fillérből 100 Millió – Reselling Masterclass
+                </span>{" "}
+                a teljes arzenál: összes beszállítói lista, összes útmutató és a skálázási masterclass –
+                egyben, 49 990 Ft-ért (199 990 Ft érték helyett).
+              </p>
+              <Link
+                href="/masterclass"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs font-black uppercase tracking-wider bg-[#ccff00] text-black hover:bg-[#b3e600] transition"
+              >
+                Masterclass megtekintése
+                <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

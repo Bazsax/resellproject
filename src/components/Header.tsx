@@ -29,7 +29,8 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { label: "FŐOLDAL", href: "/" },
-    { label: "RESELL ÚTMUTATÓ", href: "/utmutato", isHighlight: true },
+    { label: "RESELL STARTERPACK", href: "/utmutato", icon: "sparkles" as const },
+    { label: "MASTERCLASS", href: "/masterclass", isHighlight: true, icon: "flame" as const },
     { label: "EGYEDI BESZERZÉS", href: "/egyedi-beszerzes" },
     { label: "KATALÓGUS", href: "/katalogus" },
     { label: "GYIK", href: "/gyik" },
@@ -95,11 +96,11 @@ export const Header: React.FC = () => {
             {/* Right: Cart Bag & Action */}
             <div className="flex items-center gap-2 sm:gap-4">
               <Link
-                href="/utmutato"
+                href="/masterclass"
                 className="hidden lg:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider bg-[#ccff00]/10 text-[#ccff00] border border-[#ccff00]/40 hover:bg-[#ccff00] hover:text-black transition duration-200 font-btn"
               >
                 <Flame className="w-3.5 h-3.5" />
-                <span>ÚTMUTATÓ</span>
+                <span>MASTERCLASS</span>
               </Link>
 
               <button
@@ -125,15 +126,20 @@ export const Header: React.FC = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`transition-colors py-1 relative ${
+                  className={`transition-colors py-1 relative inline-flex items-center gap-1 ${
                     item.isHighlight
-                      ? "text-[#ccff00] hover:text-white font-extrabold flex items-center gap-1"
+                      ? "text-[#ccff00] hover:text-white font-extrabold"
                       : isActive
                       ? "text-white border-b-2 border-[#ccff00]"
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
-                  {item.isHighlight && <Sparkles className="w-3 h-3 text-[#ccff00]" />}
+                  {item.icon === "flame" && (
+                    <Flame className={`w-3 h-3 ${item.isHighlight ? "text-[#ccff00]" : "text-zinc-400"}`} />
+                  )}
+                  {item.icon === "sparkles" && (
+                    <Sparkles className={`w-3 h-3 ${isActive ? "text-[#ccff00]" : "text-zinc-500"}`} />
+                  )}
                   {item.label}
                 </Link>
               );
@@ -195,12 +201,17 @@ export const Header: React.FC = () => {
                   className={`flex items-center justify-between px-3 py-3 rounded-xl text-xs font-black uppercase tracking-wider font-btn transition ${
                     isActive
                       ? "bg-[#ccff00] text-black"
+                      : item.isHighlight
+                      ? "text-[#ccff00] hover:bg-zinc-800/80"
                       : "text-zinc-300 hover:bg-zinc-800/80 hover:text-white"
                   }`}
                 >
                   <span className="flex items-center gap-2.5">
-                    {item.isHighlight && (
+                    {item.icon === "flame" && (
                       <Flame className={`w-4 h-4 ${isActive ? "text-black" : "text-[#ccff00]"}`} />
+                    )}
+                    {item.icon === "sparkles" && (
+                      <Sparkles className={`w-4 h-4 ${isActive ? "text-black" : "text-zinc-500"}`} />
                     )}
                     {item.label}
                   </span>

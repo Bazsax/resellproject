@@ -10,9 +10,9 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, badgeText }) => {
-  const targetUrl = product.isDigital ? "/utmutato" : `/termek/${product.slug}`;
+  const targetUrl = product.href ?? (product.isDigital ? "/utmutato" : `/termek/${product.slug}`);
   const categoryLabel = product.isDigital
-    ? "Útmutató"
+    ? (product.subCategory ?? "Útmutató")
     : product.subCategory ?? product.category;
 
   return (

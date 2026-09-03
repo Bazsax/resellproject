@@ -17,6 +17,7 @@ import {
   Crown,
   Layers,
   Rocket,
+  AlertTriangle,
 } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import { GUIDE_REVIEWS } from "@/data/guide";
@@ -24,6 +25,7 @@ import {
   MASTERCLASS_STEPS,
   MASTERCLASS_FAQ,
   MASTERCLASS_BUNDLE_ITEMS,
+  MASTERCLASS_SLOTS,
 } from "@/data/masterclass";
 import { GuideBuyButton } from "@/components/GuideBuyButton";
 import { GuideFaqAccordion } from "@/components/GuideFaqAccordion";
@@ -37,6 +39,8 @@ export const metadata = {
 
 const SECTION = "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8";
 const DISCOUNT_PCT = Math.round(((199990 - 49990) / 199990) * 100);
+const SLOTS_LEFT = MASTERCLASS_SLOTS.total - MASTERCLASS_SLOTS.taken;
+const SLOTS_PCT = Math.round((MASTERCLASS_SLOTS.taken / MASTERCLASS_SLOTS.total) * 100);
 
 function SectionHeader({
   label,
@@ -52,6 +56,64 @@ function SectionHeader({
       <span className="text-xs font-black uppercase tracking-wider text-[#ccff00]">{label}</span>
       <h2 className="text-2xl sm:text-3xl font-black uppercase text-white font-display">{title}</h2>
       {description && <p className="text-sm text-zinc-400 font-normal">{description}</p>}
+    </div>
+  );
+}
+
+function BundleGroupCard({
+  group,
+}: {
+  group: (typeof MASTERCLASS_BUNDLE_ITEMS)[number];
+}) {
+  const hasCategories = "categories" in group && group.categories;
+
+  return (
+    <div className="rounded-2xl bg-[#121214] border border-[#27272a] p-5 sm:p-6 space-y-4 h-full">
+      <h3 className="text-sm font-black uppercase text-[#ccff00] font-display">{group.group}</h3>
+
+      {hasCategories ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {group.categories!.map((category) => (
+            <div key={category.name} className="space-y-2.5">
+              <p className="text-xs font-black uppercase tracking-wide text-white">
+                {category.name}
+              </p>
+              <ul className="space-y-2">
+                {category.items.map((item) => (
+                  <li
+                    key={item.name}
+                    className="flex items-start justify-between gap-3 text-xs sm:text-sm border-b border-zinc-800/80 pb-2 last:border-0 last:pb-0"
+                  >
+                    <span className="flex items-start gap-2 text-zinc-300 font-normal">
+                      <Check className="w-3.5 h-3.5 text-[#ccff00] flex-shrink-0 mt-0.5" />
+                      {item.name}
+                    </span>
+                    <span className="text-zinc-500 line-through shrink-0 font-normal">
+                      {item.value}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <ul className="space-y-2.5">
+          {"items" in group &&
+            group.items?.map((item) => (
+              <li
+                key={item.name}
+                className="flex items-start justify-between gap-3 text-xs sm:text-sm border-b border-zinc-800/80 pb-2 last:border-0 last:pb-0"
+              >
+                <span className="flex items-start gap-2 text-zinc-300 font-normal">
+                  <Check className="w-3.5 h-3.5 text-[#ccff00] flex-shrink-0 mt-0.5" />
+                  {item.name}
+                </span>
+                <span className="text-zinc-500 line-through shrink-0 font-normal">{item.value}</span>
+              </li>
+            ))}
+        </ul>
+      )}
     </div>
   );
 }
@@ -104,7 +166,7 @@ export default function MasterclassPage() {
               <div className="flex flex-wrap gap-4 text-xs text-zinc-400">
                 <span className="flex items-center gap-1.5">
                   <Users className="w-4 h-4 text-[#ccff00]" />
-                  47+ Masterclass vásárló
+                  {MASTERCLASS_SLOTS.taken}/{MASTERCLASS_SLOTS.total} hely foglalt
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Star className="w-4 h-4 fill-[#ccff00] text-[#ccff00]" />
@@ -112,7 +174,7 @@ export default function MasterclassPage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Layers className="w-4 h-4 text-[#ccff00]" />
-                  Teljes csomag egyben
+                  Minden egyben
                 </span>
               </div>
 
@@ -121,7 +183,7 @@ export default function MasterclassPage() {
                 <div className="relative z-10 space-y-6">
                   <div className="space-y-3">
                     <span className="text-lg sm:text-xl text-zinc-400 line-through block text-left font-bold font-display tracking-wide decoration-zinc-500">
-                      199 990 Ft érték helyett
+                      Eredeti érték 199 990 Ft
                     </span>
 
                     <div className="flex flex-wrap items-center justify-between gap-4">
@@ -145,6 +207,26 @@ export default function MasterclassPage() {
                       </div>
                     </div>
                   </div>
+
+                  <div className="rounded-xl bg-black/40 border border-zinc-800 p-3.5 space-y-2.5">
+                    <div className="flex items-start gap-2">
+                      <AlertTriangle className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+                        <span className="font-semibold text-amber-400">Limitált férőhely: {MASTERCLASS_SLOTS.taken}/{MASTERCLASS_SLOTS.total}. </span>
+                        <span className="font-semibold text-white">Csak {SLOTS_LEFT} hely szabad.</span>
+                      </p>
+                    </div>
+                    <div className="h-2 rounded-full bg-zinc-900 overflow-hidden border border-zinc-800">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-zinc-700/80 to-amber-400/80 transition-all"
+                        style={{ width: `${SLOTS_PCT}%` }}
+                      />
+                    </div>
+                    <p className="text-[10px] uppercase tracking-wider text-zinc-500 font-semibold text-right">
+                      {SLOTS_PCT}% tele
+                    </p>
+                  </div>
+
                   <GuideBuyButton product="masterclass" size="lg" />
                   <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] text-zinc-400 pt-1">
                     <span className="flex items-center gap-1">
@@ -244,36 +326,18 @@ export default function MasterclassPage() {
       <section className="py-9 sm:py-12">
         <div className={SECTION}>
           <SectionHeader
-            label="Csomagérték"
-            title="Ez mind benne van – ezért 199 990 Ft"
+            label="Kedvezményes csomag"
+            title="Minden egyben – teljes érték 199 990+ Ft"
             description="Egyenként megvéve ennyi lenne az összérték. A Masterclassban most egyben kapod – töredékáron."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            {MASTERCLASS_BUNDLE_ITEMS.map((group) => (
-              <div
-                key={group.group}
-                className="rounded-2xl bg-[#121214] border border-[#27272a] p-5 sm:p-6 space-y-4"
-              >
-                <h3 className="text-sm font-black uppercase text-[#ccff00] font-display">
-                  {group.group}
-                </h3>
-                <ul className="space-y-2.5">
-                  {group.items.map((item) => (
-                    <li
-                      key={item.name}
-                      className="flex items-start justify-between gap-3 text-xs sm:text-sm border-b border-zinc-800/80 pb-2 last:border-0 last:pb-0"
-                    >
-                      <span className="flex items-start gap-2 text-zinc-300 font-normal">
-                        <Check className="w-3.5 h-3.5 text-[#ccff00] flex-shrink-0 mt-0.5" />
-                        {item.name}
-                      </span>
-                      <span className="text-zinc-500 line-through shrink-0 font-normal">{item.value}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 items-stretch">
+            <BundleGroupCard group={MASTERCLASS_BUNDLE_ITEMS[0]} />
+            <div className="flex flex-col gap-4">
+              {MASTERCLASS_BUNDLE_ITEMS.slice(1).map((group) => (
+                <BundleGroupCard key={group.group} group={group} />
+              ))}
+            </div>
           </div>
 
           <div className="rounded-2xl bg-[#ccff00]/5 border border-[#ccff00]/30 p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -289,16 +353,16 @@ export default function MasterclassPage() {
         </div>
       </section>
 
-      {/* The Game – empire version */}
+      {/* The Game */}
       <section className="py-9 sm:py-12">
         <div className={SECTION}>
           <div className="text-center space-y-2 mb-8">
             <Zap className="w-10 h-10 text-[#ccff00] mx-auto" />
             <h2 className="text-2xl sm:text-3xl font-black uppercase text-white font-display">
-              Az egész játék – skálázva
+              Az egész játék
             </h2>
-            <p className="text-sm text-zinc-400 max-w-2xl mx-auto font-normal">
-              Ugyanaz a ciklus, amit a Starterpackben is látsz – csak most több fronton, nagyobb volumenben.
+            <p className="text-sm text-zinc-400 max-w-2xl mx-auto">
+              Egy ismételhető ciklus, amit a legtöbb ember nem fut le rendesen.
             </p>
           </div>
 
@@ -310,9 +374,20 @@ export default function MasterclassPage() {
               <ChevronRight className="w-4 h-4 text-[#ccff00] hidden sm:block flex-shrink-0" />
               <span className="px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700">Add el</span>
               <ChevronRight className="w-4 h-4 text-[#ccff00] hidden sm:block flex-shrink-0" />
-              <span className="px-3.5 py-2 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/40 text-[#ccff00]">
-                Skálázd
-              </span>
+              <span className="px-3.5 py-2 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/40 text-[#ccff00]">Ismételd</span>
+            </div>
+
+            {/* A modell – standalone */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-black/40 border border-zinc-800 text-left space-y-2.5">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-700 flex items-center justify-center flex-shrink-0">
+                  <Coins className="w-4 h-4 text-[#ccff00]" />
+                </div>
+                <h3 className="text-base sm:text-lg font-black uppercase text-white font-display">A viszonteladási modell</h3>
+              </div>
+              <p className="text-sm text-zinc-400 leading-relaxed">
+                Veszel olcsón, eladsz drágábban – de nem mindegy, mennyi a profitod.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -321,26 +396,22 @@ export default function MasterclassPage() {
                   <div className="w-8 h-8 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/40 flex items-center justify-center flex-shrink-0">
                     <TrendingUp className="w-4 h-4 text-[#ccff00]" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-black uppercase text-[#ccff00] font-display">
-                    Nagyobb árrés, több front
-                  </h3>
+                  <h3 className="text-base sm:text-lg font-black uppercase text-[#ccff00] font-display">A replikák előnye</h3>
                 </div>
-                <p className="text-sm text-zinc-300 leading-relaxed font-normal">
-                  Nem egy termékre építesz. Több kategória = több lehetőség = gyorsabb út a nagy számokhoz.
+                <p className="text-sm text-zinc-300 leading-relaxed">
+                  Az árrés lényegesen nagyobb máshoz képest. Mi ezt a kaput használjuk ki – ez az egész „játék”.
                 </p>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#ccff00]/5 border border-[#ccff00]/30 text-left space-y-2.5">
+              <div className="p-4 sm:p-5 rounded-2xl bg-red-950/20 border border-red-800/40 text-left space-y-2.5">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/40 flex items-center justify-center flex-shrink-0">
-                    <Crown className="w-4 h-4 text-[#ccff00]" />
+                  <div className="w-8 h-8 rounded-lg bg-red-950/40 border border-red-800/50 flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="w-4 h-4 text-red-400" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-black uppercase text-[#ccff00] font-display">
-                    Birodalom-mentalitás
-                  </h3>
+                  <h3 className="text-base sm:text-lg font-black uppercase text-red-400 font-display">A kockázat</h3>
                 </div>
-                <p className="text-sm text-zinc-300 leading-relaxed font-normal">
-                  A cél nem a következő eladás – hanem a rendszer, ami nélküled is termel, és amit tovább tudsz építeni.
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  Rossz termék, platform tiltás, eladás veszteséggel – ezért kell módszer a helyes döntésekhez.
                 </p>
               </div>
 
@@ -349,12 +420,10 @@ export default function MasterclassPage() {
                   <div className="w-8 h-8 rounded-lg bg-red-950/40 border border-red-800/50 flex items-center justify-center flex-shrink-0">
                     <X className="w-4 h-4 text-red-400" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-black uppercase text-red-400 font-display">
-                    Ahol a többség elakad
-                  </h3>
+                  <h3 className="text-base sm:text-lg font-black uppercase text-red-400 font-display">Így buknak el</h3>
                 </div>
-                <p className="text-sm text-zinc-400 leading-relaxed font-normal">
-                  Megállnak az első siker után. Nincs következő szint, nincs skálázás – és soha nem érik el a nagy számokat.
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  A legtöbb ember azért bukik el, mert nincs rendszere, nem tudja a trükköket, random silány terméket vesz, és az első sikertelen próbálkozás után egyből feladja.
                 </p>
               </div>
 
@@ -363,12 +432,11 @@ export default function MasterclassPage() {
                   <div className="w-8 h-8 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/40 flex items-center justify-center flex-shrink-0">
                     <Check className="w-4 h-4 text-[#ccff00]" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-black uppercase text-[#ccff00] font-display">
-                    A Masterclass előnye
-                  </h3>
+                  <h3 className="text-base sm:text-lg font-black uppercase text-[#ccff00] font-display">A nyerő módszer</h3>
                 </div>
-                <p className="text-sm text-zinc-300 leading-relaxed font-normal">
-                  Kész arzenál + skálázási térkép. Nem kell kitalálnod a következő lépést – végigvezet a birodalomig.
+                <p className="text-sm text-zinc-300 leading-relaxed">
+                  Ebben a Masterclassben rejlik minden ami elvezet a sikerhez:{" "}
+                  <span className="text-white font-semibold">Teljes beszállítói hálózat, minden eszköz és forrás, skálázási térkép. A siker lépésről, lépésre levezetve</span>.
                 </p>
               </div>
             </div>
@@ -381,8 +449,8 @@ export default function MasterclassPage() {
         <div className={SECTION}>
           <SectionHeader
             label="Lépésről lépésre"
-            title="Hogyan épül fel a birodalom?"
-            description="A Masterclass végigvisz az indulástól a skálázásig – nem áll meg az első eladásnál."
+            title="Hogyan épül fel?"
+            description="A Masterclass végigvisz az indulástól a skálázásig – a cél csak rajtad múlik"
           />
           <div className="space-y-4">
             {MASTERCLASS_STEPS.map((step) => (
@@ -520,6 +588,18 @@ export default function MasterclassPage() {
             <p className="text-sm text-zinc-300 relative z-10 font-normal max-w-xl mx-auto">
               A teljes csomag most 49 990 Ft – 199 990 Ft érték helyett. Ha birodalmat építesz, nem spórolsz a térképen.
             </p>
+            <div className="relative z-10 mx-auto max-w-md rounded-xl bg-black/40 border border-zinc-800 px-4 py-3 space-y-2">
+              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+                        <span className="font-semibold text-amber-400">Limitált férőhely: {MASTERCLASS_SLOTS.taken}/{MASTERCLASS_SLOTS.total}. </span>
+                        <span className="font-semibold text-white">Csak {SLOTS_LEFT} hely szabad.</span>
+                      </p>
+              <div className="h-1.5 rounded-full bg-zinc-900 overflow-hidden border border-zinc-800">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-zinc-700/65 to-amber-400/65"
+                  style={{ width: `${SLOTS_PCT}%` }}
+                />
+              </div>
+            </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
               <GuideBuyButton product="masterclass" size="lg" className="!w-auto sm:!min-w-[200px]" />
             </div>

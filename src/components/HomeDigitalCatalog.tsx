@@ -1,26 +1,42 @@
-import React from "react";
+"use client";
+
+import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, FileText, Store } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
-import { PRODUCTS } from "@/data/products";
+import { CATALOG_PRODUCTS } from "@/data/products";
 
-const DIGITAL_CATEGORIES = [
+type CatalogFilter = "all" | "digital" | "suppliers";
+
+const DIGITAL_CATEGORIES: {
+  id: Exclude<CatalogFilter, "all">;
+  title: string;
+  description: string;
+  icon: typeof FileText;
+}[] = [
   {
+    id: "digital",
     title: "Útmutatók",
     description: "Resell starterpackok, masterclassok és lépésről lépésre rendszerek.",
-    href: "/katalogus?kat=digital",
     icon: FileText,
   },
   {
+    id: "suppliers",
     title: "Beszállítók",
     description: "Direct Supply listák – kategóriánkénti beszállítói hozzáférések.",
-    href: "/katalogus?kat=suppliers",
     icon: Store,
   },
 ];
 
 export const HomeDigitalCatalog: React.FC = () => {
-  const digitalProducts = PRODUCTS.filter((p) => p.isDigital);
+  const [filter, setFilter] = useState<CatalogFilter>("all");
+
+  const products = useMemo(() => {
+    if (filter === "all") {
+      return CATALOG_PRODUCTS;
+    }
+    return CATALOG_PRODUCTS.filter((p) => p.category === filter);
+  }, [filter]);
 
   return (
     <section className="w-full bg-[#0a0a0c] py-9 sm:py-12">
@@ -34,45 +50,77 @@ export const HomeDigitalCatalog: React.FC = () => {
               Útmutatók, beszállítói listák és csomagok – azonnali hozzáférés vásárlás után.
             </p>
           </div>
-          <Link
-            href="/katalogus"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-zinc-700 hover:border-[#ccff00] text-xs font-black uppercase text-white transition shrink-0"
+          <button
+            type="button"
+            onClick={() => setFilter("all")}
+            className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-zinc-900 border text-xs font-black uppercase text-white transition shrink-0 cursor-pointer ${
+              filter === "all"
+                ? "border-[#ccff00]"
+                : "border-zinc-700 hover:border-[#ccff00]"
+            }`}
           >
             <span>Összes</span>
             <div className="w-4 h-4 rounded-full bg-[#ccff00] text-black flex items-center justify-center">
               <ArrowUpRight className="w-2.5 h-2.5 stroke-[3]" />
             </div>
-          </Link>
+          </button>
         </div>
 
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {DIGITAL_CATEGORIES.map((cat) => {
             const Icon = cat.icon;
+            const isActive = filter === cat.id;
             return (
-              <Link
-                key={cat.title}
-                href={cat.href}
-                className="group p-4 sm:p-5 rounded-2xl bg-[#121214] border border-[#27272a] hover:border-[#ccff00]/50 transition flex flex-col gap-2.5"
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setFilter(isActive ? "all" : cat.id)}
+                className={`group p-4 sm:p-5 rounded-2xl bg-[#121214] border transition flex flex-col gap-2.5 text-left cursor-pointer ${
+                  isActive
+                    ? "border-[#ccff00]"
+                    : "border-[#27272a] hover:border-[#ccff00]/50"
+                }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-lg bg-[#ccff00]/10 border border-[#ccff00]/30 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-4 h-4 text-[#ccff00]" />
+                  <div
+                    className={`w-9 h-9 rounded-lg border flex items-center justify-center flex-shrink-0 ${
+                      isActive
+                        ? "bg-[#ccff00] border-[#ccff00] text-black"
+                        : "bg-[#ccff00]/10 border-[#ccff00]/30 text-[#ccff00]"
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
                   </div>
-                  <h3 className="text-sm sm:text-base font-black uppercase text-white font-display transition leading-tight">
+                  <h3 className="text-sm sm:text-base font-black uppercase text-white font-display leading-tight">
                     {cat.title}
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed">{cat.description}</p>
-              </Link>
+                <p className="text-xs sm:text-sm text-zinc-400 font-sans font-normal normal-case leading-relaxed">
+                  {cat.description}
+                </p>
+              </button>
             );
           })}
         </div>
 
-        {digitalProducts.length > 0 && (
+        {products.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {digitalProducts.map((product) => (
+            {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
+          </div>
+        ) : (
+          <div className="rounded-2xl bg-[#121214] border border-[#27272a] p-8 text-center space-y-3">
+            <p className="text-sm text-zinc-400 font-normal">
+              Ebben a kategóriában még nincsenek termékek – hamarosan bővül.
+            </p>
+            <Link
+              href="/katalogus"
+              className="inline-flex items-center gap-1.5 text-xs font-black uppercase text-[#ccff00] hover:underline"
+            >
+              Teljes katalógus
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         )}
       </div>

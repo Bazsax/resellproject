@@ -1,33 +1,39 @@
+/** Limited cohort size — update TAKEN as seats fill. */
+export const MASTERCLASS_SLOTS = {
+  taken: 47,
+  total: 50,
+} as const;
+
 export const MASTERCLASS_STEPS = [
   {
     number: "01",
-    title: "Felépíted az alapot – de nem állsz meg",
+    title: "Megépítjük az alapot",
     summary:
-      "Megkapod a teljes rendszert: beszállítók, eladási módszer, vámolás. Az első eladások csak a belépő. A Masterclass azt mutatja meg, hogyan lesz ebből gépezet – nem hobbi.",
+      "Segítünk a nulladik lépésben is. Végig vezetünk az alapokon, egészen a platform regisztrációktól, az első eladásokig.",
   },
   {
     number: "02",
-    title: "Minden kategória a kezedben",
+    title: "Minden lehetőség a kezedben",
     summary:
-      "Ruhák, cipők, táskák, órák, kiegészítők, elektronikák – nem egy listát kapsz, hanem a teljes Direct Supply hálózatot. Több fronton termelsz, nem egy termékre építesz.",
+      "Nem egy 1-1 nyerő terméket kapsz, hanem a teljes Direct Supply hálózatot. Mindenféle kategóriában, mindenféle termékből.",
   },
   {
     number: "03",
-    title: "Skálázol: volumen, árrés, automatizálás",
+    title: "Megtanulod a skálázást",
     summary:
-      "Megtanulod, hogyan növeld a forgalmat anélkül, hogy minden órádat eladnád. Sablonok, folyamatok, döntési keretek – hogy a birodalom nőjön, te pedig ne éghess ki.",
+      "Kitűzöl egy havi célt, majd segítünk, hogy mennyi folyamatos termék volumen kell, egy stabil és skálázható eladási cél érdekében.",
   },
   {
     number: "04",
-    title: "Építesz márkát és visszatérő cashflow-t",
+    title: "Brand erősítés és visszatérő cashflow",
     summary:
-      "Egyszeri eladás helyett visszatérő vevők, hírnév, stabil pipeline. Innen már nem „szerencsés hónap” van – hanem tervezhető, növekvő bevétel.",
+      "Egyszeri eladás helyett visszatérő vevők, hírnév, stabil workflow. Innen már nem „szerencsés hónap” van – hanem tervezhető, növekvő bevétel.",
   },
   {
     number: "05",
-    title: "100 milliós pálya – ha végigfutod",
+    title: "100 milliós pálya",
     summary:
-      "A cél nem az első százezer. A Masterclass a teljes pályát mutatja: az első milliótól a skálázott működésig. Aki végigmegy rajta, nem csak elad – birodalmat épít.",
+      "A határ nincs megszabva. A Masterclass minden tudást és eszközt megad neked, hogy az első fillérektől a visszatérő milliókig építs.",
   },
 ];
 
@@ -52,6 +58,10 @@ export const MASTERCLASS_FAQ = [
     q: "Frissülnek a beszállítói listák és az anyagok?",
     a: "Igen. A Masterclass örökös frissítést tartalmaz: új beszállítók, friss tippek és bővülő modulok – nem kell újra megvenned.",
   },
+  {
+    q: "Miért limitált a helyek száma?",
+    a: "A Masterclass kohorsz limitált (50 fő), hogy a minőség és a támogatás tartható maradjon. Ha betelik, új helyek csak később nyílnak – ezért érdemes most lépni, amíg van szabad slot.",
+  },
 ];
 
 export const MASTERCLASS_BUNDLE_ITEMS = [
@@ -64,15 +74,34 @@ export const MASTERCLASS_BUNDLE_ITEMS = [
       { name: "Órák – Direct Supply List", value: "24 990 Ft" },
       { name: "Kiegészítők – Direct Supply List", value: "14 990 Ft" },
       { name: "Elektronikák – Direct Supply List", value: "19 990 Ft" },
+      { name: "Hidden Gems – Direct Supply List", value: "44 990 Ft" },
     ],
   },
   {
-    group: "Útmutatók & források",
+    group: "Útmutatók",
     items: [
-      { name: "Az Első Millió – Reselling Starterpack", value: "10 000 Ft" },
-      { name: "Források & tool lista (teljes gyűjtemény)", value: "14 990 Ft" },
-      { name: "Összes guide + eladási sablonok", value: "19 990 Ft" },
-      { name: "Birodalom-építő Masterclass modul", value: "24 990 Ft" },
+      { name: "Birodalom-építés Masterclass modul", value: "199 990 Ft" },
+      { name: "Az Első Millió – Reselling Starterpack", value: "9 990 Ft" },
+      { name: "Platform trükkök – Reselling Tips & Tricks", value: "19 990 Ft" },
+    ],
+  },
+  {
+    group: "Eszközök & források",
+    categories: [
+      {
+        name: "In-house eszközök",
+        items: [
+          { name: "Piac radar", value: "9 990 Ft" },
+          { name: "Volumen kalkulátor", value: "9 990 Ft" },
+        ],
+      },
+      {
+        name: "Külső eszközök",
+        items: [
+          { name: "QC finders & tools", value: "4 990 Ft" },
+          { name: "Analízis appok", value: "4 990 Ft" },
+        ],
+      },
     ],
   },
 ];

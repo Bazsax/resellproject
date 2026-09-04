@@ -53,11 +53,7 @@ export const HomeDigitalCatalog: React.FC = () => {
           <button
             type="button"
             onClick={() => setFilter("all")}
-            className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-zinc-900 border text-xs font-black uppercase text-white transition shrink-0 cursor-pointer ${
-              filter === "all"
-                ? "border-[#ccff00]"
-                : "border-zinc-700 hover:border-[#ccff00]"
-            }`}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-zinc-700 text-xs font-black uppercase text-white transition shrink-0 cursor-pointer hover:border-[#ccff00]"
           >
             <span>Összes</span>
             <div className="w-4 h-4 rounded-full bg-[#ccff00] text-black flex items-center justify-center">

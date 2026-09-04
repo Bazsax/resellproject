@@ -10,7 +10,12 @@ import {
 } from "@/lib/entitlements";
 import { getStripe, type CheckoutProductKey } from "@/lib/stripe";
 
+function hasStripeSecret(): boolean {
+  return Boolean(process.env.STRIPE_SECRET_KEY);
+}
+
 async function findStripeCustomerByEmail(email: string) {
+  if (!hasStripeSecret()) return null;
   const stripe = getStripe();
   const normalized = normalizeEmail(email);
   const existing = await stripe.customers.list({
@@ -23,6 +28,7 @@ async function findStripeCustomerByEmail(email: string) {
 export async function getEntitlementsForEmail(
   email: string
 ): Promise<EntitlementId[]> {
+  if (!hasStripeSecret()) return [];
   const customer = await findStripeCustomerByEmail(email);
   if (!customer) return [];
   return parseEntitlementList(customer.metadata?.[ENTITLEMENT_META_KEY]);
@@ -126,20 +132,23 @@ export async function syncClerkUserEntitlements(
 ): Promise<EntitlementId[]> {
   const client = await clerkClient();
   const user = await client.users.getUser(userId);
-  const emails = user.emailAddresses.map((e) => e.emailAddress);
-
-  const fromStripe = new Set<EntitlementId>();
-  for (const email of emails) {
-    for (const product of await getEntitlementsForEmail(email)) {
-      fromStripe.add(product);
-    }
-  }
 
   const existing = parseEntitlementList(
     (user.publicMetadata as Record<string, unknown> | undefined)?.[
       ENTITLEMENT_META_KEY
     ]
   );
+
+  // Without Stripe, keep using whatever is already on the Clerk user.
+  if (!hasStripeSecret()) return existing;
+
+  const fromStripe = new Set<EntitlementId>();
+  for (const email of user.emailAddresses.map((e) => e.emailAddress)) {
+    for (const product of await getEntitlementsForEmail(email)) {
+      fromStripe.add(product);
+    }
+  }
+
   const merged = expandEntitlements([...existing, ...fromStripe]);
 
   const same =

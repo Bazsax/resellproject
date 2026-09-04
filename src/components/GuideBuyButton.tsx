@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Download, Loader2 } from "lucide-react";
+import { Download, Loader2, type LucideIcon } from "lucide-react";
 
 type GuideBuyButtonProps = {
   className?: string;
   label?: string;
   size?: "default" | "lg";
   product?: "guide" | "masterclass";
+  icon?: LucideIcon;
 };
 
 const SIZE_CLASSES = {
@@ -20,6 +21,7 @@ export function GuideBuyButton({
   label = "VÁSÁRLÁS",
   size = "default",
   product = "guide",
+  icon: Icon = Download,
 }: GuideBuyButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -86,7 +88,7 @@ export function GuideBuyButton({
           <Loader2 className={`${iconClass} animate-spin`} />
         ) : (
           <>
-            <Download className={iconClass} />
+            <Icon className={iconClass} />
             <span>{label}</span>
           </>
         )}

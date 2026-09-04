@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Lock, Sparkles } from "lucide-react";
+import { ArrowUpRight, Lock, ShoppingBag, Sparkles, User } from "lucide-react";
 import { SignInButton } from "@clerk/nextjs";
 import { GuideBuyButton } from "@/components/GuideBuyButton";
 import type { RadarAccess } from "@/lib/entitlements";
@@ -12,6 +12,9 @@ type RadarUnlockBannerProps = {
   signedIn: boolean;
   variant?: "hero" | "overlay";
 };
+
+const detailLinkClass =
+  "inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-zinc-600 text-xs font-black uppercase tracking-wider text-white hover:border-[#ccff00] transition";
 
 export function RadarUnlockBanner({
   access,
@@ -71,28 +74,33 @@ export function RadarUnlockBanner({
             {needsStarterpack && (
               <GuideBuyButton
                 product="guide"
-                label="Starterpack megnyitása"
-                className="!py-2.5 !px-4 !text-xs !rounded-xl"
+                label="Starterpack vásárlása"
+                icon={ShoppingBag}
+                className="!py-2.5 !px-4 !text-xs !rounded-xl !gap-2 !shadow-md"
               />
             )}
             <GuideBuyButton
               product="masterclass"
-              label="Masterclass unlock"
-              className="!py-2.5 !px-4 !text-xs !rounded-xl"
+              label="Masterclass vásárlása"
+              icon={ShoppingBag}
+              className="!py-2.5 !px-4 !text-xs !rounded-xl !gap-2 !shadow-md"
             />
-            <Link
-              href={needsStarterpack ? "/utmutato" : "/masterclass"}
-              className="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-zinc-600 text-xs font-black uppercase tracking-wider text-white hover:border-[#ccff00] transition"
-            >
-              Részletek
+            <Link href="/utmutato" className={detailLinkClass}>
+              Starterpack
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link href="/masterclass" className={detailLinkClass}>
+              Masterclass
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
             {!signedIn && (
               <SignInButton mode="modal">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center px-4 py-2.5 rounded-xl border border-[#ccff00]/40 text-xs font-black uppercase tracking-wider text-[#ccff00] hover:bg-[#ccff00]/10 transition cursor-pointer"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-[#ccff00]/40 text-xs font-black uppercase tracking-wider text-[#ccff00] hover:bg-[#ccff00]/10 transition cursor-pointer"
                 >
-                  Már vásároltam – belépés
+                  <User className="w-3.5 h-3.5" />
+                  Már vásároltál? – belépés
                 </button>
               </SignInButton>
             )}

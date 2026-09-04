@@ -30,7 +30,7 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { label: "FŐOLDAL", href: "/" },
-    { label: "RESELL STARTERPACK", href: "/utmutato", icon: "sparkles" as const },
+    { label: "STARTERPACK", href: "/utmutato", icon: "sparkles" as const },
     { label: "MASTERCLASS", href: "/masterclass", isHighlight: true, icon: "flame" as const },
     { label: "PIAC RADAR", href: "/piac-radar" },
     { label: "EGYEDI BESZERZÉS", href: "/egyedi-beszerzes" },

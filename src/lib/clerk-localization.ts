@@ -1,4 +1,5 @@
 import { huHU } from "@clerk/localizations";
+import { BRAND_NAME } from "@/lib/brand";
 
 /** Hungarian Clerk copy with Direct Supply overrides. */
 export const clerkLocalization = {
@@ -13,6 +14,22 @@ export const clerkLocalization = {
       title: "Bejelentkezés",
       titleCombined: "Bejelentkezés",
       subtitle: "Szia! A folytatáshoz jelentkezz be.",
+    },
+    emailCode: {
+      ...huHU.signIn?.emailCode,
+      subtitle: `hogy folytathasd a(z) ${BRAND_NAME}`,
+    },
+  },
+  signUp: {
+    ...huHU.signUp,
+    start: {
+      ...huHU.signUp?.start,
+      subtitle: `Amivel folytathatod a(z) ${BRAND_NAME}`,
+      subtitleCombined: `Amivel folytathatod a(z) ${BRAND_NAME}`,
+    },
+    emailCode: {
+      ...huHU.signUp?.emailCode,
+      subtitle: `hogy folytathasd a(z) ${BRAND_NAME}`,
     },
   },
   unstable__errors: {

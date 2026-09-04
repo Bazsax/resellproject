@@ -1,0 +1,8 @@
+{
+  "slug": "verification_code",
+  "name": "Verification code",
+  "subject": "{{otp_code}} a(z) {{app.name}} ellenőrző kódod",
+  "markup_file": "clerk-verification-code.markup.hbs",
+  "body_file": "clerk-verification-code.body.html",
+  "notes": "Source of truth for the Clerk Dashboard email template. Push with: clerk api /templates/email/verification_code -X PUT --file <payload.json>"
+}

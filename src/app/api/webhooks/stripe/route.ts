@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { getStripe } from "@/lib/stripe";
+import { getStripe, type CheckoutProductKey } from "@/lib/stripe";
+import { recordPurchase } from "@/lib/purchases";
 import {
   buildGuideAccessEmailHtml,
   buildGuideAccessEmailText,
@@ -8,6 +9,12 @@ import {
 import type Stripe from "stripe";
 
 export const runtime = "nodejs";
+
+function resolveCheckoutProduct(
+  session: Stripe.Checkout.Session
+): CheckoutProductKey {
+  return session.metadata?.product === "masterclass" ? "masterclass" : "guide";
+}
 
 async function sendGuideAccessEmail(to: string, sessionId: string) {
   const apiKey = process.env.RESEND_API_KEY;
@@ -59,7 +66,6 @@ async function sendGuideAccessEmail(to: string, sessionId: string) {
       html: `<p>Új vásárlás: <strong>${to}</strong></p><p>Session: ${sessionId}</p>`,
     });
     if (notify.error) {
-      // Don't fail the webhook if buyer email already sent
       console.error("Sales notify email failed (non-fatal):", notify.error);
     }
   }
@@ -119,16 +125,35 @@ export async function POST(request: Request) {
         );
       }
 
+      const product = resolveCheckoutProduct(session);
+
       try {
-        await sendGuideAccessEmail(email, session.id);
+        await recordPurchase({
+          email,
+          product,
+          sessionId: session.id,
+        });
       } catch (err) {
         const detail = err instanceof Error ? err.message : String(err);
-        console.error("Failed to deliver guide after payment:", detail);
-        // Include detail so Stripe Dashboard → webhook attempt shows the real cause
+        console.error("Failed to record purchase entitlement:", detail);
         return NextResponse.json(
-          { error: "Delivery failed", detail },
+          { error: "Entitlement record failed", detail },
           { status: 500 }
         );
+      }
+
+      // Digital guide delivery (Starterpack / guide checkout only)
+      if (product === "guide") {
+        try {
+          await sendGuideAccessEmail(email, session.id);
+        } catch (err) {
+          const detail = err instanceof Error ? err.message : String(err);
+          console.error("Failed to deliver guide after payment:", detail);
+          return NextResponse.json(
+            { error: "Delivery failed", detail },
+            { status: 500 }
+          );
+        }
       }
     }
   }

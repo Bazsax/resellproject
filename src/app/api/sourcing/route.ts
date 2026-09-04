@@ -24,13 +24,12 @@ export async function POST(request: Request) {
       itemLink,
       fullName,
       instagram,
-      phone,
       email,
       notes,
       imageUrls = [],
     } = body;
 
-    if (!category || !itemName || !brand || !size || !fullName || !instagram || !phone || !email) {
+    if (!category || !itemName || !brand || !size || !fullName || !instagram || !email) {
       return NextResponse.json({ error: "Hiányzó kötelező mezők." }, { status: 400 });
     }
 
@@ -69,7 +68,6 @@ export async function POST(request: Request) {
       <ul>
         <li><strong>Név:</strong> ${fullName}</li>
         <li><strong>Instagram:</strong> ${instagram}</li>
-        <li><strong>Telefon:</strong> ${phone}</li>
         <li><strong>E-mail:</strong> ${email}</li>
       </ul>
       <h3>Megjegyzés</h3>

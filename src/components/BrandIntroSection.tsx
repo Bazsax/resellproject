@@ -231,8 +231,8 @@ export const BrandIntroSection: React.FC = () => {
             </div>
 
             <div className="p-5 rounded-2xl bg-zinc-900/50 border border-zinc-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div className="flex items-start gap-3">
-                <Package className="w-5 h-5 text-[#ccff00] flex-shrink-0 mt-0.5" />
+              <div className="flex flex-col items-start gap-3">
+                <Package className="w-5 h-5 text-[#ccff00] flex-shrink-0" />
                 <p className="text-sm text-zinc-300 font-normal leading-relaxed">
                   <span className="text-white font-semibold">Ideális neked,</span> ha nem szeretnél rendszert építeni,
                   hanem valaki, aki ezt naponta csinálja, hozza meg helyetted a jó döntéseket – és te csak a terméket kapod meg.

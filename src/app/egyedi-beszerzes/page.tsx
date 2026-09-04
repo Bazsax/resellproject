@@ -72,7 +72,6 @@ export default function CustomSourcingPage() {
     itemLink: "",
     fullName: "",
     instagram: "",
-    phone: "",
     email: "",
     notes: ""
   });
@@ -150,7 +149,7 @@ export default function CustomSourcingPage() {
             EGYEDI TERMÉK BESZERZÉSE
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto font-normal">
-            Nem találod a katalógusban a keresett terméket? Add meg a részleteket, tölts fel képeket, és beszerezzük a legjobb 1/1 gyári minőségben a legkedvezőbb áron!
+            Szeretnél beszerezni akár eladásra vagy akár személyes használatra valamilyen terméket? Küldd el nekünk a legjobb minőségben a legkedvezőbb áron!
           </p>
         </div>
       </div>
@@ -165,7 +164,7 @@ export default function CustomSourcingPage() {
               Beszerzési Igényed Rögzítve!
             </h2>
             <p className="text-sm text-zinc-300 max-w-md mx-auto leading-relaxed">
-              Köszönjük! Munkatársunk <span className="text-[#ccff00] font-bold">24 órán belül</span> felveszi veled a kapcsolatot a megadott Instagram vagy telefon elérhetőségen az árajánlattal és a gyári QC fotókkal.
+              Köszönjük! Munkatársunk <span className="text-[#ccff00] font-bold">24 órán belül</span> felveszi veled a kapcsolatot a megadott Instagram vagy e-mail elérhetőségen az árajánlattal és a gyári QC fotókkal.
             </p>
             <div className="pt-4 flex justify-center gap-4">
                 <Link
@@ -179,7 +178,7 @@ export default function CustomSourcingPage() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="p-6 sm:p-10 rounded-3xl bg-[#121214] border border-[#27272a] space-y-6 shadow-2xl"
+            className="p-6 sm:p-10 rounded-3xl bg-[#121214] border border-[#27272a] space-y-6 shadow-2xl mb-10 sm:mb-14"
           >
             <div>
               <label className="block text-xs font-black uppercase text-zinc-300 tracking-wider mb-2">
@@ -301,7 +300,7 @@ export default function CustomSourcingPage() {
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
                   disabled={uploadingImages || imageUrls.length >= MAX_IMAGES}
-                  className="w-full py-4 rounded-xl border-2 border-dashed border-zinc-700 hover:border-[#ccff00]/50 text-zinc-400 hover:text-[#ccff00] transition flex flex-col items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-4 rounded-xl border-2 border-dashed border-zinc-700 hover:border-[#ccff00]/50 text-zinc-400 hover:text-[#ccff00] transition flex flex-col items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {uploadingImages ? (
                     <>
@@ -370,24 +369,8 @@ export default function CustomSourcingPage() {
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#ccff00]"
                   />
                 </div>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-zinc-400 uppercase mb-1">
-                    Telefonszám (WhatsApp) *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+36 30 123 4567"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#ccff00]"
-                  />
-                </div>
-
-                <div>
+                <div className="sm:col-span-2">
                   <label className="block text-xs font-bold text-zinc-400 uppercase mb-1">
                     E-mail Cím *
                   </label>

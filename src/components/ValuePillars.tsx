@@ -34,7 +34,7 @@ export const ValuePillars: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="flex items-start gap-3 p-4 sm:p-5 rounded-2xl bg-[#121214] border border-[#27272a] hover:border-[#ccff00]/50 hover:bg-[#161619] transition duration-200 group"
+                className="flex flex-col items-start gap-3 p-4 sm:p-5 rounded-2xl bg-[#121214] border border-[#27272a] hover:border-[#ccff00]/50 hover:bg-[#161619] transition duration-200 group"
               >
                 <div className="w-9 h-9 rounded-xl bg-[#ccff00] text-black flex items-center justify-center flex-shrink-0 shadow-md shadow-[#ccff00]/20 group-hover:scale-105 transition">
                   <Icon className="w-[18px] h-[18px] stroke-[2.5]" />

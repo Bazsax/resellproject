@@ -19,6 +19,7 @@ import { InstagramIcon } from "@/components/SocialIcons";
 import { Logo } from "@/components/Logo";
 import { useCart } from "@/context/CartContext";
 import { SearchModal } from "@/components/SearchModal";
+import { HeaderAuthButton, HeaderSignUpButton } from "@/components/HeaderAuthButton";
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
@@ -31,6 +32,7 @@ export const Header: React.FC = () => {
     { label: "FŐOLDAL", href: "/" },
     { label: "RESELL STARTERPACK", href: "/utmutato", icon: "sparkles" as const },
     { label: "MASTERCLASS", href: "/masterclass", isHighlight: true, icon: "flame" as const },
+    { label: "PIAC RADAR", href: "/piac-radar" },
     { label: "EGYEDI BESZERZÉS", href: "/egyedi-beszerzes" },
     { label: "KATALÓGUS", href: "/katalogus" },
     { label: "GYIK", href: "/gyik" },
@@ -103,6 +105,8 @@ export const Header: React.FC = () => {
                 <span>MASTERCLASS</span>
               </Link>
 
+              <HeaderAuthButton />
+
               <button
                 onClick={toggleCart}
                 className="relative p-2 -mr-2 rounded-lg text-white hover:text-[#ccff00] transition focus:outline-none group"
@@ -127,15 +131,19 @@ export const Header: React.FC = () => {
                   key={item.href}
                   href={item.href}
                   className={`transition-colors py-1 relative inline-flex items-center gap-1 ${
-                    item.isHighlight
-                      ? "text-[#ccff00] hover:text-white font-extrabold"
-                      : isActive
+                    isActive
                       ? "text-white border-b-2 border-[#ccff00]"
+                      : item.isHighlight
+                      ? "text-[#ccff00] hover:text-white font-extrabold"
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
                   {item.icon === "flame" && (
-                    <Flame className={`w-3 h-3 ${item.isHighlight ? "text-[#ccff00]" : "text-zinc-400"}`} />
+                    <Flame
+                      className={`w-3 h-3 ${
+                        isActive || item.isHighlight ? "text-[#ccff00]" : "text-zinc-400"
+                      }`}
+                    />
                   )}
                   {item.icon === "sparkles" && (
                     <Sparkles className={`w-3 h-3 ${isActive ? "text-[#ccff00]" : "text-zinc-500"}`} />
@@ -221,8 +229,20 @@ export const Header: React.FC = () => {
               })}
             </div>
 
-            {/* Social & Contact */}
-            <div className="pt-2 pb-1 border-t border-[#27272a] space-y-1.5">
+            {/* Auth + Social */}
+            <div className="pt-2 pb-1 border-t border-[#27272a] space-y-2">
+              <div className="grid grid-cols-2 gap-2 px-1">
+                <HeaderSignUpButton className="w-full py-2.5 rounded-xl border border-zinc-700 text-xs font-black uppercase tracking-wider text-white hover:border-[#ccff00] transition cursor-pointer">
+                  Regisztráció
+                </HeaderSignUpButton>
+                <Link
+                  href="/sign-in"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full py-2.5 rounded-xl bg-[#ccff00] text-black text-xs font-black uppercase tracking-wider text-center hover:bg-[#b3e600] transition"
+                >
+                  Belépés
+                </Link>
+              </div>
               <div className="flex items-center justify-around text-zinc-400">
                 <a
                   href="https://instagram.com"

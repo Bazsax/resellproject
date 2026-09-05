@@ -270,7 +270,7 @@ export default function ProductDetailPage({ params }: PageProps) {
         {/* 7. Big CTA Button (Bold Nekst font, Uppercase styling) */}
         <div className="pt-3">
           {product.isDigital ? (
-            <GuideBuyButton label="MEGVÁSÁROLOM – 1 000 Ft" />
+            <GuideBuyButton label="MEGVÁSÁROLOM – 990 Ft" />
           ) : (
             <button
               onClick={handleAddToCart}

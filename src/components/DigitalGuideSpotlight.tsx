@@ -119,7 +119,7 @@ export const DigitalGuideSpotlight: React.FC = () => {
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex items-center gap-2.5">
                       <span className="text-2xl sm:text-3xl font-black font-display text-[#ccff00] tracking-tight">
-                        1 000 Ft
+                        990 Ft
                       </span>
                       <span className="text-xs font-black px-2.5 py-1 rounded-md bg-red-600 text-white uppercase tracking-wider shadow-lg shadow-red-600/30">
                         -90%

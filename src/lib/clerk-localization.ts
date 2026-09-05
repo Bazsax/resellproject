@@ -32,6 +32,14 @@ export const clerkLocalization = {
       subtitle: `hogy folytathasd a(z) ${BRAND_NAME}`,
     },
   },
+  userProfile: {
+    ...huHU.userProfile,
+    deletePage: {
+      ...huHU.userProfile?.deletePage,
+      // Official huHU still says "Delete account" here; confirmation expects "Fiók törlése".
+      actionDescription: 'Írd be, hogy "Fiók törlése" a folytatáshoz.',
+    },
+  },
   unstable__errors: {
     ...huHU.unstable__errors,
     // Matches Clerk Dashboard: min password length = 8 (HIBP breach check disabled there).

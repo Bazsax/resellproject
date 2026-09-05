@@ -34,7 +34,7 @@ import { SuccessStoriesSection } from "@/components/SuccessStoriesSection";
 export const metadata = {
   title: "100 fillérből 100 Millió – Reselling Masterclass | Direct Supply",
   description:
-    "A legteljesebb Direct Supply csomag: összes beszállítói lista, útmutatók és a birodalom-építő masterclass – 49 990 Ft helyett 199 990 Ft értékben.",
+    "A legteljesebb Direct Supply csomag: összes beszállítói lista, útmutatók és a birodalom-építő masterclass – 49 990 Ft helyett 200 000 Ft értékben.",
 };
 
 const SECTION = "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8";
@@ -183,7 +183,7 @@ export default function MasterclassPage() {
                 <div className="relative z-10 space-y-6">
                   <div className="space-y-3">
                     <span className="text-lg sm:text-xl text-zinc-400 line-through block text-left font-bold font-display tracking-wide decoration-zinc-500">
-                      Eredeti érték 199 990 Ft
+                      Eredeti érték 200 000 Ft
                     </span>
 
                     <div className="flex flex-wrap items-center justify-between gap-4">
@@ -327,7 +327,7 @@ export default function MasterclassPage() {
         <div className={SECTION}>
           <SectionHeader
             label="Kedvezményes csomag"
-            title="Minden egyben – teljes érték 199 990+ Ft"
+            title="Minden egyben – teljes érték 200 000+ Ft"
             description="Egyenként megvéve ennyi lenne az összérték. A Masterclassban most egyben kapod – töredékáron."
           />
 
@@ -343,7 +343,7 @@ export default function MasterclassPage() {
           <div className="rounded-2xl bg-[#ccff00]/5 border border-[#ccff00]/30 p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <p className="text-xs text-zinc-500 font-normal uppercase tracking-wider">Összérték</p>
-              <p className="text-2xl font-black text-zinc-400 line-through font-display">199 990 Ft</p>
+              <p className="text-2xl font-black text-zinc-400 line-through font-display">200 000 Ft</p>
             </div>
             <div className="sm:text-right">
               <p className="text-xs text-[#ccff00] font-black uppercase tracking-wider">Te most ennyiért kapod</p>
@@ -586,7 +586,7 @@ export default function MasterclassPage() {
               100 fillérből indult – 100 millió a cél
             </h2>
             <p className="text-sm text-zinc-300 relative z-10 font-normal max-w-xl mx-auto">
-              A teljes csomag most 49 990 Ft – 199 990 Ft érték helyett. Ha birodalmat építesz, nem spórolsz a térképen.
+              A teljes csomag most 49 990 Ft – 200 000 Ft érték helyett. Ha birodalmat építesz, nem spórolsz a térképen.
             </p>
             <div className="relative z-10 mx-auto max-w-md rounded-xl bg-black/40 border border-zinc-800 px-4 py-3 space-y-2">
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">

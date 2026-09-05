@@ -107,7 +107,7 @@ export default function GuidePage() {
 
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                      <span className="text-4xl sm:text-5xl font-black font-display text-[#ccff00] tracking-tight">1 000 Ft</span>
+                      <span className="text-4xl sm:text-5xl font-black font-display text-[#ccff00] tracking-tight">990 Ft</span>
                       <span className="text-sm font-black px-3 py-1.5 rounded-md bg-red-600 text-white uppercase tracking-wider shadow-lg shadow-red-600/30">-90%</span>
                     </div>
                     <div className="flex flex-col items-start sm:items-end justify-center gap-2">

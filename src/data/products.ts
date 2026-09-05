@@ -103,7 +103,7 @@ export const PRODUCTS: Product[] = [
     brand: "Direct Supply",
     category: "digital",
     subCategory: "Útmutató",
-    price: 1000,
+    price: 990,
     originalPrice: 10000,
     isDigital: true,
     isFeatured: true,
